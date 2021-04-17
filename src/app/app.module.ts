@@ -4,20 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LayoutsComponent } from './layouts/layouts.component';
-import { DefaultComponent } from './layouts/default/default.component';
+import { DefaultModule } from './layouts/default/default.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LayoutsComponent,
-    DefaultComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DefaultModule
 
   ],
   providers: [],

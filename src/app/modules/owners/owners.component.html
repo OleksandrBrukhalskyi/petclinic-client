@@ -1,4 +1,4 @@
-<form [formGroup]="ownerForm" class="example-form" (ngSubmit)="create()"  >
+<!-- <form [formGroup]="ownerForm" class="example-form" (ngSubmit)="create()"  >
   <table class="example-full-width" cellspacing="0"><tr>
     <td><mat-form-field class="example-full-width">
       <mat-label>Surname</mat-label>
@@ -29,9 +29,50 @@
    </p>
    <button>Add
    </button>
- </form>
-
+ </form> -->
  
+ <!-- <h1 mat-dialog-title>Update owner</h1>
+<div *ngFor="let owner of owners"> 
+    <form class="example-form" (ngSubmit)="update(owner.id)">
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td>
+        <mat-form-field>
+          <mat-label>Surname</mat-label>
+         
+          <input  matInput type="text" [(ngModel)]="owner.surname" name="surname" required >
+          </mat-form-field>
+         
+        
+        </td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Firstname</mat-label>
+          <input matInput [(ngModel)]="owner.firstname" type="text" name="firstname"  required/>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Patronymic</mat-label>
+          <input matInput  [(ngModel)]="owner.patronymic"type="text"  name="patronymic" required/>
+        </mat-form-field></td>
+      </tr>
+      </table>
+       <p>
+         <mat-form-field class="example-full-width">
+           <mat-label>Address</mat-label>
+           <textarea matInput [(ngModel)]="owner.homeAddress" name="address" required></textarea>
+         </mat-form-field>
+       <p>
+       <mat-form-field class="example-full-width">
+         <mat-label>Phone number</mat-label>
+         <span matPrefix>+38 &nbsp;</span>
+         <input type="tel" matInput [(ngModel)]="owner.phoneNumber" maxlength="10" name="phoneNumber" required/>
+         <mat-icon matSuffix>mode_edit</mat-icon>
+       </mat-form-field>
+       </p>
+       <button mat-button (click)="update(owner.id)">Add
+       </button>
+     </form>
+    </div> -->
+
+
 <mat-form-field>
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
@@ -46,26 +87,26 @@
     <ng-container matColumnDef="surname">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Surname</mat-header-cell>
       <mat-cell  *matCellDef="let owner">{{owner.surname}}
-        <!-- <span *ngIf="ownerToUpdate != null && ownerToUpdate.id == owner.id">
+        <span *ngIf="ownerToUpdate != null && ownerToUpdate.id == owner.id">
           <input  type="text"  [(ngModel)]="ownerToUpdate.surname" name="surnameUpd">
-        </span> -->
+        </span>
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="firstname">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Firstname </mat-header-cell>
       <mat-cell *matCellDef="let owner">{{owner.firstname}}
-        <!-- <span *ngIf="ownerToUpdate != null && ownerToUpdate.id == owner.id">
+        <span *ngIf="ownerToUpdate != null && ownerToUpdate.id == owner.id">
           <input type="text"  [(ngModel)]="ownerToUpdate.firstname" name="firstnameUpd">
-        </span> -->
+        </span>
       </mat-cell>
     </ng-container>
   
     <ng-container matColumnDef="patronymic">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Patronymic </mat-header-cell>
       <mat-cell *matCellDef="let owner">{{owner.patronymic}}
-        <!-- <span *ngIf="ownerToUpdate != null && ownerToUpdate.id == owner.id">
+        <span *ngIf="ownerToUpdate != null && ownerToUpdate.id == owner.id">
           <input type="text"  [(ngModel)]="ownerToUpdate.patronymic" name="patronymicUpd">
-        </span> -->
+        </span>
       </mat-cell>
     </ng-container>
   
@@ -81,9 +122,9 @@
     <ng-container matColumnDef="phone_number">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
       <mat-cell *matCellDef="let owner">{{owner.phoneNumber}}
-        <!-- <span *ngIf="ownerToUpdate != null && ownerToUpdate.id == owner.id">
-          <input type="text" formControlName="phoneNumber" [(ngModel)]="ownerToUpdate.phoneNumber" name="phoneNumberUpd">
-        </span> -->
+        <span *ngIf="ownerToUpdate != null && ownerToUpdate.id == owner.id">
+          <input type="text"  [(ngModel)]="ownerToUpdate.phoneNumber" name="phoneNumberUpd">
+        </span>
       </mat-cell>
     </ng-container>
   
@@ -91,7 +132,7 @@
     <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
       <mat-cell *matCellDef="let owner">
         <button mat-icon-button matTooltip="Click to Edit"  color="primary" >
-          <mat-icon aria-label="Edit" (click)="update(owner)">edit</mat-icon>
+          <mat-icon aria-label="Edit" (click)="openDialogUpdate(owner)">edit</mat-icon>
         </button>
         <button mat-icon-button matTooltip="Click to Delete"  color="warn" #action>
           <mat-icon aria-label="Delete" (click)="delete(owner.id)">delete</mat-icon>
@@ -102,7 +143,7 @@
     <mat-row *matRowDef="let owner; columns: displayedColumns;"></mat-row>
   </mat-table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-
+  <button mat-raised-button color="primary" *ngIf="ownerToUpdate != null"(click)="save()">Save</button>
   <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
     <mat-icon (click)="openDialog()">add</mat-icon>
   </button>

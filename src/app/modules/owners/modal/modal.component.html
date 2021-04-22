@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Adding owner</h1>
+<form [formGroup]="ownerForm" class="example-form" (ngSubmit)="create()"  >
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Surname</mat-label>
+      <input matInput formControlName="surname"   type="text"  name="surname" required/>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Firstname</mat-label>
+      <input matInput formControlName="firstname" type="text"  name="firstname" required/>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Patronymic</mat-label>
+      <input matInput formControlName="patronymic" type="text"  name="patronymic" required/>
+    </mat-form-field></td>
+  </tr>
+  </table>
+   <p>
+     <mat-form-field class="example-full-width">
+       <mat-label>Address</mat-label>
+       <textarea matInput formControlName="homeAddress" name="address" required></textarea>
+     </mat-form-field>
+   <p>
+   <mat-form-field class="example-full-width">
+     <mat-label>Phone number</mat-label>
+     <span matPrefix>+38 &nbsp;</span>
+     <input type="tel" matInput formControlName="phoneNumber" maxlength="10" name="phoneNumber" required/>
+     <mat-icon matSuffix>mode_edit</mat-icon>
+   </mat-form-field>
+   </p>
+   <button mat-button (click)="onNoClick()">Add
+   </button>
+ </form>
+

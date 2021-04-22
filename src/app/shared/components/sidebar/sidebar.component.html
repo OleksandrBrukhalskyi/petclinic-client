@@ -1,8 +1,8 @@
 <mat-nav-list>
     <div class="profile-card">
         <div class="header">
-            <h3>Брухальський Олександр Валентинович</h3>
-            <h5>bruhaslkyi.o@gmail.com</h5>
+            <h3>{{authService.userValue.surname}} {{authService.userValue.firstname}} {{authService.userValue.patronymic}}</h3>
+            <h5>{{authService.userValue.login}}</h5>
         </div>
 
     </div>
@@ -19,3 +19,4 @@
     
 
 </mat-nav-list>
+

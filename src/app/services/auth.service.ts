@@ -12,13 +12,14 @@ import { Auth } from '../model/auth.model';
     providedIn: 'root'
 })
 export class AuthService {
-    private userSubject: BehaviorSubject<User>;
+    public userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
 
     constructor(private http: HttpClient, private router: Router) {
         let localUser = JSON.parse(localStorage.getItem('user'));
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
         this.user = this.userSubject.asObservable();
+        
 
     }
     refreshTokenPayload = {
@@ -28,6 +29,7 @@ export class AuthService {
     public get userValue(): User {
         return this.userSubject.value;
     }
+    
     signUp(user: User){
         return this.http.post<any>(`http://localhost:8080/api/auth/register`, user)
             
@@ -55,6 +57,23 @@ export class AuthService {
 
         }));
 
+    }
+    // getUser(){
+    //     return localStorage.getItem('surname');
+    // }
+    userInfo = {
+        surname: this.getSurname(),
+        firstname: this.getFirstname(),
+        patronymic: this.getPatronymic()
+    }
+    getSurname(){
+        return localStorage.getItem('surname');
+    }
+    getFirstname(){
+        return localStorage.getItem('firstname');
+    }
+    getPatronymic(){
+        return localStorage.getItem('patronymic');
     }
     getLogin(){
         return localStorage.getItem('login');

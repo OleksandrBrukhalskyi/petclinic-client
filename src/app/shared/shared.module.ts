@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MatButtonModule, MatDividerModule, MatFormFieldControl, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatDialogRef, MatDividerModule, MatFormFieldControl, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule, MatToolbarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {CdkTableModule} from "@angular/cdk/table";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardComponent } from './widgets/card/card.component';
+import { ModalComponent } from '../modules/owners/modal/modal.component';
+import { ModalUpdateComponent } from '../modules/owners/modal-update/modal-update.component';
 
 
 
@@ -17,9 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
-   
-   
+    SidebarComponent,
+    CardComponent  
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatCardModule,
+    
+    
    
     
     
@@ -62,9 +67,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatDividerModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatCardModule,
+    CardComponent
     
        
-  ]
+  ],
+  entryComponents:[ModalComponent,ModalUpdateComponent]
 })
 export class SharedModule { }

@@ -5,6 +5,7 @@
 	patronymic: string;
 	homeAddress: string;
 	phoneNumber: string;
+	
 
 	constructor(surname: string,
 		firstname: string,

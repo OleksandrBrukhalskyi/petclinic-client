@@ -3,4 +3,8 @@
     refreshToken: string;
     expiresAt: Date;
     login: string;
+    surname: string;
+    firstname: string;
+    patronymic: string;
+    
 }

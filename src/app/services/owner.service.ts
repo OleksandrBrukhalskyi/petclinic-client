@@ -30,7 +30,8 @@ import { Owner } from '../model/owner.model';
     getById(id: any) {
       return this.http.get(`${this.baseUrl}/${id}`);
     }
-    getQuantity() {
-      return this.http.get(`${this.baseUrl}/quantity`)
+    getQuantity() { 
+      return this.http.get<string>(`${this.baseUrl}/quantity`)
+         
     }
   }

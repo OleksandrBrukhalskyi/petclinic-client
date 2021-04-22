@@ -29,8 +29,8 @@ export class OwnersComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-	   owners: any;
-	   ownerToUpdate: Owner;
+	  owners: any;
+	  ownerToUpdate: Owner;
 	  owner: Owner;
 	  private id: any;
     dataSource: any;

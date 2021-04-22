@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Owner } from 'src/app/model/owner.model';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { OwnersComponent } from '../owners.component';
 import { OwnerService } from 'src/app/services/owner.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({

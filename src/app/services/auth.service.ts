@@ -58,9 +58,7 @@ export class AuthService {
         }));
 
     }
-    // getUser(){
-    //     return localStorage.getItem('surname');
-    // }
+   
     userInfo = {
         surname: this.getSurname(),
         firstname: this.getFirstname(),

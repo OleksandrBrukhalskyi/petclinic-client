@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Update owner</h1>
+<div> 
+    <form class="example-form" (ngSubmit)="update()">
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td>
+        <mat-form-field>
+          <mat-label>Surname</mat-label>
+         
+          <input  matInput type="text" [(ngModel)]="data.surname" name="surname" required >
+          </mat-form-field>
+         
+        
+        </td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Firstname</mat-label>
+          <input matInput [(ngModel)]="data.firstname" type="text" name="firstname"  required/>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Patronymic</mat-label>
+          <input matInput  [(ngModel)]="data.patronymic"type="text"  name="patronymic" required/>
+        </mat-form-field></td>
+      </tr>
+      </table>
+       <p>
+         <mat-form-field class="example-full-width">
+           <mat-label>Address</mat-label>
+           <textarea matInput [(ngModel)]="data.homeAddress" name="address" required></textarea>
+         </mat-form-field>
+       <p>
+       <mat-form-field class="example-full-width">
+         <mat-label>Phone number</mat-label>
+         <span matPrefix>+38 &nbsp;</span>
+         <input type="tel" matInput [(ngModel)]="data.phoneNumber" maxlength="10" name="phoneNumber" required/>
+         <mat-icon matSuffix>mode_edit</mat-icon>
+       </mat-form-field>
+       </p>
+       <button mat-button (click)="onNoClick()">Add
+       </button>
+     </form>
+    </div>

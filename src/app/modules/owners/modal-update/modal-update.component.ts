@@ -18,20 +18,9 @@ export class ModalUpdateComponent implements OnInit {
   owners: any;
   ownerCurrent: any;
 
-
-  // ownerToUpdate: Owner;
   owner: Owner;
-
-  //public owner: Owner;
   public id: number;
-  // owner: Owner = {
-  //   id: '',
-  //   surname: '',
-  //   firstname: '',
-  //   patronymic: '',
-  //   homeAddress: '',
-  //   phoneNumber: ''
-  // }
+  
  
 
 
@@ -53,9 +42,7 @@ export class ModalUpdateComponent implements OnInit {
 }
 
   ngOnInit() {
-    // this.owner = new Owner(this.owner.surname,this.owner.firstname,
-    //   this.owner.patronymic,this.owner.homeAddress,this.owner.phoneNumber);
-    //this.returnById(this.route.snapshot.params.id);
+    
 
   }
   loadOwners() {
@@ -75,9 +62,7 @@ export class ModalUpdateComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  // public get f() {
-  //   return this.ownerForm.controls;
-  // }
+  
   returnById(id: number){
     this.ownerService.getById(id).subscribe(data =>{
       console.log(data);
@@ -87,46 +72,11 @@ export class ModalUpdateComponent implements OnInit {
 
   }
   update() {
-    // const data = {
-    //     id: this.owner.id,
-    //     surname: this.owner.surname,
-    //     firstname: this.owner.firstname,
-    //     patronymic: this.owner.patronymic,
-    //     homeAddress: this.owner.homeAddress,
-    //     phoneNumber: this.owner.phoneNumber
-    // };
+   
     this.ownerService.update(this.data,this.data.id).subscribe(res => {
-      //this.ownerCurrent = res;
       console.log(res);
-      //this.load();
+     
     })
-  }
-  // update(owner: Owner) {
-  //   this.ownerToUpdate = owner;
-  // }
-  // update() {
-  //  //let ownerUpdated = this.ownerService.getById(this.owner.id)
-  //  this.ownerService.update(this.owner,this.owner.id).subscribe(data =>{
-  //    console.log(data);
-  //    this.load();
-
-
-  //  })
-  // }
-  // update() {
-  //   this.dialogRef.close(this.ownerForm.value);
-  // }
- 
-
-
-  // save() {
-  //   if (this.ownerToUpdate.id !== '' && this.ownerToUpdate.surname !== '' && this.ownerToUpdate.firstname !== ''
-  //   && this.ownerToUpdate.patronymic !== '' && this.ownerToUpdate.homeAddress !== '' && this.ownerToUpdate.phoneNumber !== '') {
-  //     this.ownerService.update(this.ownerToUpdate , this.ownerToUpdate.id).subscribe(() => {
-  //       this.load();
-  //       this.ownerToUpdate = null;
-  //     });
-  //   }
-  // }
+  } 
 
 }

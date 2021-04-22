@@ -5,7 +5,9 @@ import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.componen
 import { RouterModule } from '@angular/router';
 import { OwnersComponent } from 'src/app/modules/owners/owners.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import {MatDividerModule, MatSidenavModule} from '@angular/material';
+import {MatCardModule, MatDividerModule, MatSidenavModule} from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 
 
@@ -14,13 +16,16 @@ import {MatDividerModule, MatSidenavModule} from '@angular/material';
     DefaultComponent,
     DashboardComponent,
     OwnersComponent
+    
   ],
   imports: [
     CommonModule,
     RouterModule,
     SharedModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    FlexLayoutModule,
+    MatCardModule
     
   ]
 })

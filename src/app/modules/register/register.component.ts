@@ -32,10 +32,7 @@ export class RegisterComponent implements OnInit {
               private route: ActivatedRoute,
               private _snackBar: MatSnackBar) {
 
-    // if (!this.authService.userValue) {
-    //   this.router.navigate(['/owners']);
-    //   return;
-    // }
+    
 
     this.registerForm  = this.formBuilder.group({
       surname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(32)]],

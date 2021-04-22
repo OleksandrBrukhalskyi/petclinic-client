@@ -1,1 +1,58 @@
-<p>pets works!</p>
+<h2>Pets</h2>
+
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+  </mat-form-field>
+  <mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+        <mat-cell *matCellDef="let pet">{{pet.id}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell *matCellDef="let pet">{{pet.name}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="breed">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Breed</mat-header-cell>
+        <mat-cell *matCellDef="let pet">{{pet.breed}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="dateOfBirth">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Date of Birth</mat-header-cell>
+        <mat-cell *matCellDef="let pet">{{pet.dateOfBirth | date}}</mat-cell>
+      </ng-container>
+  
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
+      <mat-cell *matCellDef="let owner">{{owner.homeAddress}}
+        <!-- <span *ngIf="ownerToUpdate != null && ownerToUpdate.id == owner.id">
+          <input type="text"  [(ngModel)]="owner.homeAddress" name="homeAddressUpd">
+        </span> -->
+      </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="owner">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Owner</mat-header-cell>
+        <mat-cell *matCellDef="let pet">{{pet.owner.surname}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let pet">
+          <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
+            <mat-icon aria-label="Edit" (click)="update(pet)">edit</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn">
+            <mat-icon aria-label="Delete" (click)="delete(pet.id)">delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let pet; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <button mat-fab color="primary">
+    <mat-icon >add</mat-icon>
+  </button>

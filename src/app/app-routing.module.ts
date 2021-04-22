@@ -5,6 +5,7 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { LoginComponent } from './modules/login/login.component';
 import { OwnersComponent } from './modules/owners/owners.component';
+import { PetsComponent } from './modules/pets/pets.component';
 import { RegisterComponent } from './modules/register/register.component';
 
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   component: DefaultComponent, canActivate: [AuthGuard],
   children:[
     { path: '', component: DashboardComponent},
-    { path:'owners', component: OwnersComponent}
+    { path:'owners', component: OwnersComponent},
+    { path: 'pets', component: PetsComponent}
   ],
 },
 { path: 'signup',component: RegisterComponent},

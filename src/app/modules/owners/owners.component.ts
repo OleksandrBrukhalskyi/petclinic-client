@@ -72,18 +72,9 @@ export class OwnersComponent implements OnInit {
     const dialogRef = this.dialog.open(ModalUpdateComponent,{
       width: '720px',
       data: owner
-
-      // data:{
-      //   surname: this.ownerCurrent.surname,
-      //   firstname: this.ownerCurrent.firstname,
-      //   patronymic: this.ownerCurrent.patronymic,
-      //   homeAddress: this.ownerCurrent.homeAddress,
-      //   phoneNumber: this.ownerCurrent.phoneNumber
-      // }
     });
     dialogRef.afterClosed().subscribe(result => {
-      //this.owner = result;
-      //this.load();
+     
 
     })
 
@@ -98,8 +89,7 @@ export class OwnersComponent implements OnInit {
     this.load();
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    // this.owner = new Owner(this.owner.surname,this.owner.firstname,
-    //   this.owner.patronymic,this.owner.homeAddress,this.owner.phoneNumber);
+    
 
   }
  
@@ -130,11 +120,8 @@ export class OwnersComponent implements OnInit {
     });
   }
 
-  // update(owner: Owner) {
-  //   this.ownerToUpdate = owner;
-  // }
+ 
   update() {
-    //let ownerUpdated = this.ownerService.getById(this.owner.id)
     this.ownerService.update(this.owner,this.owner.id).subscribe(data =>{
       console.log(data);
  

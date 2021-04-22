@@ -7,13 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DefaultModule } from './layouts/default/default.module';
 import { RegisterComponent } from './modules/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatRadioModule, MatCardModule, MatChipsModule, MatCheckboxModule, MatInputModule, MatIconModule, MatButtonModule, MatRippleModule, MatDialogModule, MatExpansionModule, MatProgressSpinnerModule, MatSnackBarModule, MatToolbarModule, MatTableModule, MatTableDataSource, MatSortModule, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatDividerModule } from '@angular/material';
+import { MatRadioModule, MatCardModule, MatChipsModule, MatCheckboxModule, MatInputModule, MatIconModule, MatButtonModule, MatRippleModule, MatDialogModule, MatExpansionModule, MatProgressSpinnerModule, MatSnackBarModule, MatToolbarModule, MatTableModule, MatTableDataSource, MatSortModule, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatDividerModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './modules/login/login.component';
 import {CdkTableModule} from "@angular/cdk/table";
 import { JwtInterceptor } from './helpers/jwt.interceptor';
-import { TokenInterceptor } from './services/token.interceptor';
-import { FooterComponent } from './shared/components/footer/footer.component';
+import { ModalComponent } from './modules/owners/modal/modal.component';
+import { ModalUpdateComponent } from './modules/owners/modal-update/modal-update.component';
+
 
 
 
@@ -22,7 +23,10 @@ import { FooterComponent } from './shared/components/footer/footer.component';
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ModalComponent,
+    ModalUpdateComponent
+    
     
     
   ],
@@ -55,14 +59,18 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     MatFormFieldModule,
     MatSelectModule,
     MatTableModule,
-    MatDividerModule
+    MatDividerModule,
+    
     
     
     
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    {provide: MAT_DIALOG_DATA, useValue: {}},
+    { provide: MatDialogRef, useValue: {} }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ModalComponent,ModalUpdateComponent]
 })
 export class AppModule { }

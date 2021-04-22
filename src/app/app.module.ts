@@ -14,6 +14,7 @@ import {CdkTableModule} from "@angular/cdk/table";
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ModalComponent } from './modules/owners/modal/modal.component';
 import { ModalUpdateComponent } from './modules/owners/modal-update/modal-update.component';
+import { PetsComponent } from './modules/pets/pets.component';
 
 
 
@@ -25,7 +26,8 @@ import { ModalUpdateComponent } from './modules/owners/modal-update/modal-update
     RegisterComponent,
     LoginComponent,
     ModalComponent,
-    ModalUpdateComponent
+    ModalUpdateComponent,
+    PetsComponent
     
     
     

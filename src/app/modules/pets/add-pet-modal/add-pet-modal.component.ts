@@ -17,7 +17,7 @@ export class AddPetModalComponent implements OnInit {
   dataSource: any;
   pets: any;
   owners: any;
-  //private pet: Pet = new Pet();
+  
 
 
   constructor(public dialogRef: MatDialogRef<AddPetModalComponent>, 

@@ -1,5 +1,4 @@
 <h2>Pets</h2>
-
 <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
@@ -42,7 +41,7 @@
         <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
         <mat-cell *matCellDef="let pet">
           <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
-            <mat-icon aria-label="Edit" (click)="update(pet)">edit</mat-icon>
+            <mat-icon aria-label="Edit" (click)="openDialogOnUpdate(pet)">edit</mat-icon>
           </button>
           <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn">
             <mat-icon aria-label="Delete" (click)="delete(pet.id)">delete</mat-icon>
@@ -53,6 +52,6 @@
     <mat-row *matRowDef="let pet; columns: displayedColumns;"></mat-row>
   </mat-table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-  <button mat-fab color="primary">
+  <button mat-fab color="primary" (click)="openDialogOnCreate()">
     <mat-icon >add</mat-icon>
   </button>

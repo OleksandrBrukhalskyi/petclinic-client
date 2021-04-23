@@ -15,6 +15,8 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ModalComponent } from './modules/owners/modal/modal.component';
 import { ModalUpdateComponent } from './modules/owners/modal-update/modal-update.component';
 import { PetsComponent } from './modules/pets/pets.component';
+import { AddPetModalComponent } from './modules/pets/add-pet-modal/add-pet-modal.component';
+import { UpdatePetModalComponent } from './modules/pets/update-pet-modal/update-pet-modal.component';
 
 
 
@@ -27,7 +29,9 @@ import { PetsComponent } from './modules/pets/pets.component';
     LoginComponent,
     ModalComponent,
     ModalUpdateComponent,
-    PetsComponent
+    PetsComponent,
+    AddPetModalComponent,
+    UpdatePetModalComponent
     
     
     
@@ -73,6 +77,6 @@ import { PetsComponent } from './modules/pets/pets.component';
     { provide: MatDialogRef, useValue: {} }
   ],
   bootstrap: [AppComponent],
-  entryComponents:[ModalComponent,ModalUpdateComponent]
+  entryComponents:[ModalComponent,ModalUpdateComponent,AddPetModalComponent,UpdatePetModalComponent]
 })
 export class AppModule { }

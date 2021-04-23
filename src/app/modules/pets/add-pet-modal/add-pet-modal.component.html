@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Adding pet</h1>
+<form  [formGroup]="petForm" class="example-form" (ngSubmit)="create()" >
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" type="text" name="name" required/>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Breed</mat-label>
+          <input matInput formControlName="breed" type="text" name="breed">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput formControlName="dateOfBirth" type="date" name="dateOfBirth">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Owner</mat-label>
+            <mat-select formControlName="owner" name="owner">
+              <mat-option *ngFor="let owner of owners" [value]="owner.id">
+                {{owner.surname + " " + " " + owner.firstname+" " +" " + owner.patronymic}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <button  mat-button (click)="onNoClick()">Add</button>
+</form>

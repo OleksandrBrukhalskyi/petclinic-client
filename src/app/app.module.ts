@@ -14,6 +14,9 @@ import {CdkTableModule} from "@angular/cdk/table";
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ModalComponent } from './modules/owners/modal/modal.component';
 import { ModalUpdateComponent } from './modules/owners/modal-update/modal-update.component';
+import { PetsComponent } from './modules/pets/pets.component';
+import { AddPetModalComponent } from './modules/pets/add-pet-modal/add-pet-modal.component';
+import { UpdatePetModalComponent } from './modules/pets/update-pet-modal/update-pet-modal.component';
 
 
 
@@ -25,7 +28,10 @@ import { ModalUpdateComponent } from './modules/owners/modal-update/modal-update
     RegisterComponent,
     LoginComponent,
     ModalComponent,
-    ModalUpdateComponent
+    ModalUpdateComponent,
+    PetsComponent,
+    AddPetModalComponent,
+    UpdatePetModalComponent
     
     
     
@@ -71,6 +77,6 @@ import { ModalUpdateComponent } from './modules/owners/modal-update/modal-update
     { provide: MatDialogRef, useValue: {} }
   ],
   bootstrap: [AppComponent],
-  entryComponents:[ModalComponent,ModalUpdateComponent]
+  entryComponents:[ModalComponent,ModalUpdateComponent,AddPetModalComponent,UpdatePetModalComponent]
 })
 export class AppModule { }

@@ -6,11 +6,11 @@ import { Specialty } from "../model/specialty.model";
     providedIn: 'root'
   })
  export class SpecialtyService {
-    baseUrl = `http://localhost:8080/api/veterinarian`;
+    baseUrl = `http://localhost:8080/api/specialty`;
   
     constructor(private http: HttpClient) { }
   
-    getVeterinarians() {
+    getSpecialties() {
       return this.http.get(`${this.baseUrl}`);
     }
   

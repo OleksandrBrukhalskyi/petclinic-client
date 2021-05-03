@@ -15,11 +15,11 @@ export class VeterinarianService {
   }
 
   add(veterinarian: Veterinarian) {
-    return this.http.post(`${this.baseUrl}/add`,veterinarian);
+    return this.http.post(`${this.baseUrl}/add`, veterinarian);
   }
 
   update(veterinarian: Veterinarian, id: number) {
-    return this.http.put(`${this.baseUrl}/${id}`,veterinarian);
+    return this.http.put(`${this.baseUrl}/${id}`, veterinarian);
   }
 
   getById(id: number) {

@@ -17,6 +17,7 @@ import { ModalUpdateComponent } from './modules/owners/modal-update/modal-update
 import { PetsComponent } from './modules/pets/pets.component';
 import { AddPetModalComponent } from './modules/pets/add-pet-modal/add-pet-modal.component';
 import { UpdatePetModalComponent } from './modules/pets/update-pet-modal/update-pet-modal.component';
+import { VeterinariansComponent } from './modules/veterinarians/veterinarians.component';
 
 
 
@@ -31,7 +32,8 @@ import { UpdatePetModalComponent } from './modules/pets/update-pet-modal/update-
     ModalUpdateComponent,
     PetsComponent,
     AddPetModalComponent,
-    UpdatePetModalComponent
+    UpdatePetModalComponent,
+    VeterinariansComponent
     
     
     

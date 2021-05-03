@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './widgets/card/card.component';
 import { ModalComponent } from '../modules/owners/modal/modal.component';
 import { ModalUpdateComponent } from '../modules/owners/modal-update/modal-update.component';
+import { AddPetModalComponent } from '../modules/pets/add-pet-modal/add-pet-modal.component';
 
 
 
@@ -73,6 +74,6 @@ import { ModalUpdateComponent } from '../modules/owners/modal-update/modal-updat
     
        
   ],
-  entryComponents:[ModalComponent,ModalUpdateComponent]
+  entryComponents:[ModalComponent,ModalUpdateComponent,AddPetModalComponent]
 })
 export class SharedModule { }

@@ -10,4 +10,10 @@ export class Pet {
     constructor() {
         this.owner = new Owner(this.owner.surname,this.owner.firstname,this.owner.patronymic,this.owner.homeAddress,this.owner.phoneNumber);
     }
+    // constructor(name: string, dateOfBirth: Date, breed: string, owner: Owner) {
+    //     this.name = name;
+    //     this.dateOfBirth = dateOfBirth;
+    //     this.breed = breed;
+    //     this.owner = new Owner(this.owner.surname,this.owner.firstname,this.owner.patronymic,this.owner.homeAddress,this.owner.phoneNumber);
+    // }
 }

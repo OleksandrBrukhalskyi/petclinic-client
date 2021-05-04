@@ -20,6 +20,9 @@ import { UpdatePetModalComponent } from './modules/pets/update-pet-modal/update-
 import { VeterinariansComponent } from './modules/veterinarians/veterinarians.component';
 import { AddModalComponent } from './modules/veterinarians/add-modal/add-modal.component';
 import { UpdateModalComponent } from './modules/veterinarians/update-modal/update-modal.component';
+import { SpecialtiesComponent } from './modules/specialties/specialties.component';
+import { AddSpecialtyModalComponent } from './modules/specialties/add-specialty-modal/add-specialty-modal.component';
+import { UpdateSpecialtyModalComponent } from './modules/specialties/update-specialty-modal/update-specialty-modal.component';
 
 
 
@@ -37,7 +40,10 @@ import { UpdateModalComponent } from './modules/veterinarians/update-modal/updat
     UpdatePetModalComponent,
     VeterinariansComponent,
     AddModalComponent,
-    UpdateModalComponent
+    UpdateModalComponent,
+    SpecialtiesComponent,
+    AddSpecialtyModalComponent,
+    UpdateSpecialtyModalComponent
     
     
     

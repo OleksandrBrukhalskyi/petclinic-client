@@ -89,6 +89,15 @@ import { UpdateSpecialtyModalComponent } from './modules/specialties/update-spec
     { provide: MatDialogRef, useValue: {} }
   ],
   bootstrap: [AppComponent],
-  entryComponents:[ModalComponent,ModalUpdateComponent,AddPetModalComponent,UpdatePetModalComponent,AddModalComponent,UpdateModalComponent]
+  entryComponents:[
+    ModalComponent,
+    ModalUpdateComponent,
+    AddPetModalComponent,
+    UpdatePetModalComponent,
+    AddModalComponent,
+    UpdateModalComponent,
+    AddSpecialtyModalComponent,
+    UpdateSpecialtyModalComponent
+  ]
 })
 export class AppModule { }

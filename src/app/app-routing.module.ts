@@ -7,6 +7,7 @@ import { LoginComponent } from './modules/login/login.component';
 import { OwnersComponent } from './modules/owners/owners.component';
 import { PetsComponent } from './modules/pets/pets.component';
 import { RegisterComponent } from './modules/register/register.component';
+import { SpecialtiesComponent } from './modules/specialties/specialties.component';
 import { VeterinariansComponent } from './modules/veterinarians/veterinarians.component';
 
 
@@ -18,7 +19,8 @@ const routes: Routes = [
     { path: '', component: DashboardComponent},
     { path: 'owners', component: OwnersComponent},
     { path: 'pets', component: PetsComponent},
-    { path: 'veterinarians', component: VeterinariansComponent}
+    { path: 'veterinarians', component: VeterinariansComponent},
+    { path: 'specialties', component:SpecialtiesComponent}
   ],
 },
 { path: 'signup',component: RegisterComponent},

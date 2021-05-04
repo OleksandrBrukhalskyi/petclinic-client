@@ -19,7 +19,7 @@
         <mat-form-field class="example-full-width">
           <mat-label>Specialty</mat-label>
             <mat-select [(ngModel)]="vet.specialty" name="specialty">
-              <mat-option *ngFor="let specialty of specialties" [value]="specialty.id">
+              <mat-option *ngFor="let specialty of specialties" [value]="specialty.id" >
                 {{specialty.name}}
               </mat-option>
             </mat-select>

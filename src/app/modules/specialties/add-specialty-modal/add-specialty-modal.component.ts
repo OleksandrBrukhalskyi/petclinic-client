@@ -10,7 +10,7 @@ import { SpecialtyService } from 'src/app/services/specialty.service';
   styleUrls: ['./add-specialty-modal.component.scss']
 })
 export class AddSpecialtyModalComponent implements OnInit {
-  dataSource: any;
+  public dataSource: any;
   specialties: any;
   specialtyForm: FormGroup;
   
@@ -24,7 +24,7 @@ export class AddSpecialtyModalComponent implements OnInit {
 
   create() {
     this.specialtyService.add(this.specialtyForm.value).subscribe(() => {
-
+        console.log(this.specialtyForm.value)
     });
 
   }

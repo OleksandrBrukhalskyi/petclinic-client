@@ -13,11 +13,11 @@ import { UpdateSpecialtyModalComponent } from './update-specialty-modal/update-s
 })
 export class SpecialtiesComponent implements OnInit {
 
-  displayedColumns = ['id','name'];
+  displayedColumns = ['id','name','actions'];
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  dataSource: any;
+  public dataSource: any;
   specialties: any;
   specialty: Specialty;
   specialtyForm: FormGroup;
@@ -37,9 +37,10 @@ export class SpecialtiesComponent implements OnInit {
 
 
   ngOnInit() {
+    this.getSpecialties();
+    this.dataSource = new MatTableDataSource();
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.dataSource = new MatTableDataSource();
   }
 
   create() {
@@ -58,7 +59,7 @@ export class SpecialtiesComponent implements OnInit {
 
   }
   getSpecialties() {
-    this.specialtyService.getSpecialties().subscribe(data => {
+    this.specialtyService.getSpecialties().subscribe((data:{}) => {
       this.dataSource.data = data;
       this.specialties = data;
     })
@@ -97,7 +98,7 @@ export class SpecialtiesComponent implements OnInit {
         data: specialty
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
+      this.getSpecialties();
 
     })
 

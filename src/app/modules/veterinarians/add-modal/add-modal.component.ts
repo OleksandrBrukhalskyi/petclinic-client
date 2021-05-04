@@ -52,10 +52,17 @@ export class AddModalComponent implements OnInit {
       this.specialties = data;
     })
   }
+  getVets() {
+    return this.vetService.getVeterinarians().subscribe(data => {
+      this.veterinarians = data;
+    });
+
+  }
 
   create() {
     this.vetService.add(this.vetForm.value).subscribe(() => {
-
+        console.log(this.vetForm.value)
+        this.getVets();
     });
 
   }

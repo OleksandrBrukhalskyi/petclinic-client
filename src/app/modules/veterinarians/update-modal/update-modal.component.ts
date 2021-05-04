@@ -31,21 +31,34 @@ export class UpdateModalComponent implements OnInit {
       }
 
   ngOnInit() {
+    this.getSpecialties();
   }
 
   update() {
     this.vetService.update(this.vet, this.vet.id).subscribe(() => {
-
+        //this.getSpecialties();
     });
 
   }
   onNoClick(): void {
     this.dialogRef.close();
+    this.getVeterinarians();
+    this.getSpecialties();
+    
   }
   getSpecialties() {
-    return this.specialtyService.getSpecialties().subscribe(data =>{
+    return this.specialtyService.getSpecialties().subscribe((data: {}) =>{
       this.specialties = data;
+      this.dataSource.data = data;
     })
   }
+  getVeterinarians() {
+    return this.vetService.getVeterinarians().subscribe(data => {
+      this.veterinarians = data;
+    })
+  }
+  // processSelecteItem(id) {
+  //   this.specialty.name = this.specialties.find(x => x.id === id).name;
+  // }
 
 }

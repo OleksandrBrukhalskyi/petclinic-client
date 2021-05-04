@@ -44,35 +44,44 @@ export class VeterinariansComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getSpecialties();
     this.dataSource = new MatTableDataSource();
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+    this.getVeterinarians();
+    this.getSpecialties();
+    
   }
 
   create() {
     this.veterinarianService.add(this.veterinarian).subscribe(data => {
+        this.getVeterinarians();
         this.vetForm.setErrors(null);
         this.vetForm.reset();
-        //TODO load table data 
+        
+
     });
 
   }
+
   getSpecialties() {
-    this.specialtyService.getSpecialties().subscribe(data => {
+    this.specialtyService.getSpecialties().subscribe((data:{}) => {
       this.specialties = data;
     });
 
   }
   getVeterinarians() {
-    this.veterinarianService.getVeterinarians().subscribe(data => {
+    this.veterinarianService.getVeterinarians().subscribe((data:{}) => {
+      this.dataSource.data = data;
       this.veterinarians = data;
     });
 
   }
 
   update() {
-    this.veterinarianService.update(this.veterinarian, this.veterinarian.id);//MAYBE ERROR 
+    this.veterinarianService.update(this.veterinarian, this.veterinarian.id).subscribe(() => {
+        this.getVeterinarians();
+    });
+
   }
 
 
@@ -94,7 +103,7 @@ export class VeterinariansComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(data => {
       this.veterinarian = data;
-      //this.load();
+      this.getVeterinarians();
     })
   }
 
@@ -104,7 +113,7 @@ export class VeterinariansComponent implements OnInit {
       data: veterinarian
     });
     dialogRef.afterClosed().subscribe(data => {
-      
+      console.log(data);
     })
   }
 

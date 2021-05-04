@@ -49,7 +49,7 @@ export class ModalComponent  implements OnInit {
     let owner = new Owner(this.f.surname.value, this.f.firstname.value,
       this.f.patronymic.value, this.f.homeAddress.value, this.f.phoneNumber.value);
     this.ownerService.add(owner).subscribe(() => {
-      //this.load();
+      this.load();
       this.ownerForm.reset();
       this.ownerForm.setErrors(null);
 

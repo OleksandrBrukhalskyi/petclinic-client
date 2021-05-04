@@ -44,6 +44,7 @@ export class VeterinariansComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getSpecialties();
     this.dataSource = new MatTableDataSource();
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;

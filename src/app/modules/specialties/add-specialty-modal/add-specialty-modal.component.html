@@ -1,1 +1,14 @@
-<p>add-specialty-modal works!</p>
+<h1 mat-dialog-title>Adding specialty</h1>
+<form [formGroup]="specialtyForm" class="example-form" (ngSubmit)="create()">
+    <table class="example-full-width">
+        <tr>
+            <td>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" type="text" name="name" required/>
+                  </mat-form-field>
+            </td>
+        </tr>
+    </table>
+    <button  mat-button (click)="onNoClick()">Add</button>
+</form>

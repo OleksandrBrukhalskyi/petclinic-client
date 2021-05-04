@@ -14,6 +14,8 @@ import { CardComponent } from './widgets/card/card.component';
 import { ModalComponent } from '../modules/owners/modal/modal.component';
 import { ModalUpdateComponent } from '../modules/owners/modal-update/modal-update.component';
 import { AddPetModalComponent } from '../modules/pets/add-pet-modal/add-pet-modal.component';
+import { AddModalComponent } from '../modules/veterinarians/add-modal/add-modal.component';
+import { UpdateModalComponent } from '../modules/veterinarians/update-modal/update-modal.component';
 
 
 
@@ -74,6 +76,6 @@ import { AddPetModalComponent } from '../modules/pets/add-pet-modal/add-pet-moda
     
        
   ],
-  entryComponents:[ModalComponent,ModalUpdateComponent,AddPetModalComponent]
+  entryComponents:[ModalComponent,ModalUpdateComponent,AddPetModalComponent,AddModalComponent,UpdateModalComponent]
 })
 export class SharedModule { }

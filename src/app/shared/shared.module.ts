@@ -16,6 +16,8 @@ import { ModalUpdateComponent } from '../modules/owners/modal-update/modal-updat
 import { AddPetModalComponent } from '../modules/pets/add-pet-modal/add-pet-modal.component';
 import { AddModalComponent } from '../modules/veterinarians/add-modal/add-modal.component';
 import { UpdateModalComponent } from '../modules/veterinarians/update-modal/update-modal.component';
+import { AddSpecialtyModalComponent } from '../modules/specialties/add-specialty-modal/add-specialty-modal.component';
+import { UpdateSpecialtyModalComponent } from '../modules/specialties/update-specialty-modal/update-specialty-modal.component';
 
 
 
@@ -76,6 +78,14 @@ import { UpdateModalComponent } from '../modules/veterinarians/update-modal/upda
     
        
   ],
-  entryComponents:[ModalComponent,ModalUpdateComponent,AddPetModalComponent,AddModalComponent,UpdateModalComponent]
+  entryComponents:[
+    ModalComponent,
+    ModalUpdateComponent,
+    AddPetModalComponent,
+    AddModalComponent,
+    UpdateModalComponent,
+    AddSpecialtyModalComponent,
+    UpdateSpecialtyModalComponent
+  ]
 })
 export class SharedModule { }

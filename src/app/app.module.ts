@@ -18,6 +18,8 @@ import { PetsComponent } from './modules/pets/pets.component';
 import { AddPetModalComponent } from './modules/pets/add-pet-modal/add-pet-modal.component';
 import { UpdatePetModalComponent } from './modules/pets/update-pet-modal/update-pet-modal.component';
 import { VeterinariansComponent } from './modules/veterinarians/veterinarians.component';
+import { AddModalComponent } from './modules/veterinarians/add-modal/add-modal.component';
+import { UpdateModalComponent } from './modules/veterinarians/update-modal/update-modal.component';
 
 
 
@@ -33,7 +35,9 @@ import { VeterinariansComponent } from './modules/veterinarians/veterinarians.co
     PetsComponent,
     AddPetModalComponent,
     UpdatePetModalComponent,
-    VeterinariansComponent
+    VeterinariansComponent,
+    AddModalComponent,
+    UpdateModalComponent
     
     
     
@@ -79,6 +83,6 @@ import { VeterinariansComponent } from './modules/veterinarians/veterinarians.co
     { provide: MatDialogRef, useValue: {} }
   ],
   bootstrap: [AppComponent],
-  entryComponents:[ModalComponent,ModalUpdateComponent,AddPetModalComponent,UpdatePetModalComponent]
+  entryComponents:[ModalComponent,ModalUpdateComponent,AddPetModalComponent,UpdatePetModalComponent,AddModalComponent,UpdateModalComponent]
 })
 export class AppModule { }

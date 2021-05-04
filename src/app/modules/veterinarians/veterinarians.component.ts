@@ -5,6 +5,8 @@ import { Specialty } from 'src/app/model/specialty.model';
 import { Veterinarian } from 'src/app/model/veterinarian.model';
 import { SpecialtyService } from 'src/app/services/specialty.service';
 import { VeterinarianService } from 'src/app/services/veterinarian.service';
+import { AddModalComponent } from './add-modal/add-modal.component';
+import { UpdateModalComponent } from './update-modal/update-modal.component';
 
 @Component({
   selector: 'app-veterinarians',
@@ -82,9 +84,28 @@ export class VeterinariansComponent implements OnInit {
     this.veterinarianService.delete(id).subscribe(() => {
       this.getVeterinarians();
     });
-    
+
+  }
+  openDialogOnCreate() {
+    const dialogRef = this.dialog.open(AddModalComponent,{
+      width: '800px',
+      data: {}
+    });
+    dialogRef.afterClosed().subscribe(data => {
+      this.veterinarian = data;
+      //this.load();
+    })
   }
 
+  openDiaglogOnUpdate(veterinarian: Veterinarian) {
+    const dialogRef = this.dialog.open(UpdateModalComponent,{
+      width: '800px',
+      data: veterinarian
+    });
+    dialogRef.afterClosed().subscribe(data => {
+      
+    })
+  }
 
 
 }

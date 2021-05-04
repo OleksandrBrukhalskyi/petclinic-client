@@ -1,1 +1,29 @@
-<p>add-modal works!</p>
+<h1 mat-dialog-title>Adding veterinarian</h1>
+<form [formGroup]="vetForm" class="example-form" (ngSubmit)="create()">
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Surname</mat-label>
+          <input matInput formControlName="surname"   type="text"  name="surname" required/>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Firstname</mat-label>
+          <input matInput formControlName="firstname" type="text"  name="firstname" required/>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width">
+          <mat-label>Patronymic</mat-label>
+          <input matInput formControlName="patronymic" type="text"  name="patronymic" required/>
+        </mat-form-field></td>
+      </tr>
+      </table>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Specialty</mat-label>
+            <mat-select formControlName="specialty" name="specialty">
+              <mat-option *ngFor="let specialty of specialties" [value]="specialty.id">
+                {{specialty.name}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+      </td>
+      <button  mat-button (click)="onNoClick()">Add</button>
+</form>

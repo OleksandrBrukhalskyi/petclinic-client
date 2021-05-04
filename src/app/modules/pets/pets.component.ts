@@ -22,10 +22,8 @@ export class PetsComponent implements OnInit {
    pets: any;
    public dataSource: any;
    pet: Pet;
-  owner: Owner;
+   owner: Owner;
   
-
-
   petForm: FormGroup;
 
 

@@ -17,6 +17,12 @@ import { ModalUpdateComponent } from './modules/owners/modal-update/modal-update
 import { PetsComponent } from './modules/pets/pets.component';
 import { AddPetModalComponent } from './modules/pets/add-pet-modal/add-pet-modal.component';
 import { UpdatePetModalComponent } from './modules/pets/update-pet-modal/update-pet-modal.component';
+import { VeterinariansComponent } from './modules/veterinarians/veterinarians.component';
+import { AddModalComponent } from './modules/veterinarians/add-modal/add-modal.component';
+import { UpdateModalComponent } from './modules/veterinarians/update-modal/update-modal.component';
+import { SpecialtiesComponent } from './modules/specialties/specialties.component';
+import { AddSpecialtyModalComponent } from './modules/specialties/add-specialty-modal/add-specialty-modal.component';
+import { UpdateSpecialtyModalComponent } from './modules/specialties/update-specialty-modal/update-specialty-modal.component';
 
 
 
@@ -31,7 +37,13 @@ import { UpdatePetModalComponent } from './modules/pets/update-pet-modal/update-
     ModalUpdateComponent,
     PetsComponent,
     AddPetModalComponent,
-    UpdatePetModalComponent
+    UpdatePetModalComponent,
+    VeterinariansComponent,
+    AddModalComponent,
+    UpdateModalComponent,
+    SpecialtiesComponent,
+    AddSpecialtyModalComponent,
+    UpdateSpecialtyModalComponent
     
     
     
@@ -77,6 +89,15 @@ import { UpdatePetModalComponent } from './modules/pets/update-pet-modal/update-
     { provide: MatDialogRef, useValue: {} }
   ],
   bootstrap: [AppComponent],
-  entryComponents:[ModalComponent,ModalUpdateComponent,AddPetModalComponent,UpdatePetModalComponent]
+  entryComponents:[
+    ModalComponent,
+    ModalUpdateComponent,
+    AddPetModalComponent,
+    UpdatePetModalComponent,
+    AddModalComponent,
+    UpdateModalComponent,
+    AddSpecialtyModalComponent,
+    UpdateSpecialtyModalComponent
+  ]
 })
 export class AppModule { }

@@ -18,7 +18,7 @@ export class UpdatePetModalComponent implements OnInit {
   pets: any;
   owners: any;
 
-   constructor(public dialogRef: MatDialogRef<AddPetModalComponent>, 
+   constructor(public dialogRef: MatDialogRef<UpdatePetModalComponent>, 
     @Inject(MAT_DIALOG_DATA) public pet: Pet, @Inject(MAT_DIALOG_DATA) public owner: Owner, public petService: PetService, public ownerService: OwnerService ,
     private formBuilder: FormBuilder) { 
       this.petForm = this.formBuilder.group({

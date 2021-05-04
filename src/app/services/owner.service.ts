@@ -2,11 +2,11 @@
 
 import {HttpClient} from '@angular/common/http';
 import { Owner } from '../model/owner.model';
-
 @Injectable({
     providedIn: 'root'
   })
   export class OwnerService {
+  
   
       baseUrl = `http://localhost:8080/api/owner`;
   
@@ -31,7 +31,7 @@ import { Owner } from '../model/owner.model';
       return this.http.get(`${this.baseUrl}/${id}`);
     }
     getQuantity() { 
-      return this.http.get<string>(`${this.baseUrl}/quantity`)
-         
+      return this.http.get(`${this.baseUrl}/quantity`);
+               
     }
   }

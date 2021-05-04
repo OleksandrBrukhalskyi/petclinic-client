@@ -1,0 +1,31 @@
+<h2>Specialties</h2>
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+</mat-form-field>
+<mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header >ID</mat-header-cell>
+        <mat-cell *matCellDef="let specialty">{{specialty.id}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header >Name</mat-header-cell>
+        <mat-cell *matCellDef="let specialty">{{specialty.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let specialty">
+          <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
+            <mat-icon aria-label="Edit" (click)="openDialogOnUpdate(specialty)">edit</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn">
+            <mat-icon aria-label="Delete" (click)="delete(specialty.id)">delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let specialty columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+<button mat-fab color="primary" (click)="openDialogOnCreate()">
+    <mat-icon >add</mat-icon>
+</button>

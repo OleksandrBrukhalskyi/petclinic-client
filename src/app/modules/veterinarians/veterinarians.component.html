@@ -1,0 +1,46 @@
+<h2>Veterinarians</h2>
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+</mat-form-field>
+<mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+        <mat-cell *matCellDef="let veterinarian">{{veterinarian.id}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="surname">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Surname</mat-header-cell>
+        <mat-cell *matCellDef="let veterinarian">{{veterinarian.surname}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="firstname">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Firstname</mat-header-cell>
+        <mat-cell *matCellDef="let veterinarian">{{veterinarian.firstname}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="patronymic">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Patronymic</mat-header-cell>
+        <mat-cell *matCellDef="let veterinarian">{{veterinarian.patronymic}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="specialty">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Specialty</mat-header-cell>
+        <mat-cell *matCellDef="let veterinarian">{{veterinarian.specialty.name}}</mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let veterinarian">
+            <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
+                <mat-icon aria-label="Edit" (click)="openDiaglogOnUpdate(veterinarian)">edit</mat-icon>
+              </button>
+              <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn">
+                <mat-icon aria-label="Delete" (click)="delete(veterinarian.id)">delete</mat-icon>
+              </button>
+        </mat-cell>
+    </ng-container> 
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let pet; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <button mat-fab color="primary" (click)="openDialogOnCreate()">
+    <mat-icon >add</mat-icon>
+  </button>

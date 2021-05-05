@@ -1,17 +1,19 @@
 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="40px" class="stats-cards">
     <mat-card fxFlex="25" align="center">
         <h4>Amount of owners</h4>
-        <h1>{{amount | async}}</h1>
+        <h1>{{amountOfOwners | async}}</h1>
     </mat-card>
     <mat-card fxFlex="25" align="center">
-        <h4>Total amount of visits</h4>
-        <h1>49</h1>
+        <h4>Total amount of pets</h4>
+        <h1>{{amountOfPets | async}}</h1>
     </mat-card>
-    <mat-card fxFlex="25">
-        <app-widget-card></app-widget-card>
+    <mat-card fxFlex="25" align="center">
+        <h4>Income</h4>
+        <h1>{{income | async}} ₴</h1>
     </mat-card>
-    <mat-card fxFlex="25">
-        <app-widget-card></app-widget-card>
+    <mat-card fxFlex="25"  align="center">
+        <h4>Amount of visits</h4>
+        <h1>{{amountOfVisits | async}}</h1>
     </mat-card>
 </div>
 

@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
  
   amountOfOwners: Observable<any>;
   amountOfPets: Observable<any>;
+  amountOfVisits: Observable<any>;
   income: Observable<any>;
 
   constructor( public ownerService: OwnerService,public petService: PetService, public visitService: VisitService) { }
@@ -21,7 +22,8 @@ export class DashboardComponent implements OnInit {
     this.amountOfOwners = this.ownerService.getQuantity();
     this.amountOfPets = this.petService.amountOfPets();
     this.income = this.visitService.income();
-
+    this.amountOfVisits = this.visitService.amount();
+    
 
     
   }

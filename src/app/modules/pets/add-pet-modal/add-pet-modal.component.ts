@@ -33,6 +33,8 @@ export class AddPetModalComponent implements OnInit {
 
   ngOnInit() {
     this.getOwners();
+    this.load();
+    
     
   }
   load() {

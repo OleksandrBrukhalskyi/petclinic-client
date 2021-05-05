@@ -24,4 +24,7 @@ export class PetService {
     getById(id: any) {
       return this.http.get(`${this.baseUrl}/${id}`);
     }
+    amountOfPets() {
+      return this.http.get(`${this.baseUrl}/quantity`);
+    }
 }

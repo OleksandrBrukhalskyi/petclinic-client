@@ -34,4 +34,7 @@ export class VisitService {
     incomePerVisits() {
         return this.http.get(`${this.baseUrl}/income-per-visits`)
     }
+    amount() {
+        return this.http.get(`${this.baseUrl}/amount`);
+    }
 }

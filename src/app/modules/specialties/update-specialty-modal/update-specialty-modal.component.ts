@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MAT_DIALOG_DATA } from '@angular/material';
 import { Specialty } from 'src/app/model/specialty.model';
 import { SpecialtyService } from 'src/app/services/specialty.service';
 import { AddSpecialtyModalComponent } from '../add-specialty-modal/add-specialty-modal.component';
@@ -14,9 +14,11 @@ export class UpdateSpecialtyModalComponent implements OnInit {
   dataSource: any;
   specialties: any;
   specialtyForm: FormGroup;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   
   constructor(private specialtyService: SpecialtyService,private formBuilder: FormBuilder,public dialogRef: MatDialogRef<UpdateSpecialtyModalComponent>,
-              @Inject(MAT_DIALOG_DATA) public specialty: Specialty) { 
+              @Inject(MAT_DIALOG_DATA) public specialty: Specialty, private snackBar: MatSnackBar) { 
     this.specialtyForm = this.formBuilder.group({
       name: ['',[Validators.required]]
     });
@@ -25,7 +27,7 @@ export class UpdateSpecialtyModalComponent implements OnInit {
 
   update() {
     this.specialtyService.update(this.specialty,this.specialty.id).subscribe(() => {
-
+        this.openSnackBarAfterSpecialtyUpdate()
     });
 
   }
@@ -45,6 +47,14 @@ export class UpdateSpecialtyModalComponent implements OnInit {
       //this.dataSource.data = data;
       this.specialties = data;
     })
+  }
+  openSnackBarAfterSpecialtyUpdate(){
+    this.snackBar.open('The specialty was successfully updated!', 'Ok',{
+      duration: 3000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+
   }
 
 }

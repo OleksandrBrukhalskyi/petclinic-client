@@ -24,6 +24,7 @@ import { SpecialtiesComponent } from './modules/specialties/specialties.componen
 import { AddSpecialtyModalComponent } from './modules/specialties/add-specialty-modal/add-specialty-modal.component';
 import { UpdateSpecialtyModalComponent } from './modules/specialties/update-specialty-modal/update-specialty-modal.component';
 import { ModalOwnerDeleteComponent } from './modules/owners/modal-owner-delete/modal-owner-delete.component';
+import { DeletePetModalComponent } from './modules/pets/delete-pet-modal/delete-pet-modal.component';
 
 
 
@@ -45,7 +46,8 @@ import { ModalOwnerDeleteComponent } from './modules/owners/modal-owner-delete/m
     SpecialtiesComponent,
     AddSpecialtyModalComponent,
     UpdateSpecialtyModalComponent,
-    ModalOwnerDeleteComponent
+    ModalOwnerDeleteComponent,
+    DeletePetModalComponent
     
     
     

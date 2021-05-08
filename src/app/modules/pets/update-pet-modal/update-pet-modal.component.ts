@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MAT_DIALOG_DATA } from '@angular/material';
 import { Owner } from 'src/app/model/owner.model';
 import { Pet } from 'src/app/model/pet.model';
 import { OwnerService } from 'src/app/services/owner.service';
@@ -17,10 +17,15 @@ export class UpdatePetModalComponent implements OnInit {
   dataSource: any;
   pets: any;
   owners: any;
+  selectedOwner: any;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+
+
 
    constructor(public dialogRef: MatDialogRef<UpdatePetModalComponent>, 
     @Inject(MAT_DIALOG_DATA) public pet: Pet, @Inject(MAT_DIALOG_DATA) public owner: Owner, public petService: PetService, public ownerService: OwnerService ,
-    private formBuilder: FormBuilder) { 
+    private formBuilder: FormBuilder,private snackBar: MatSnackBar) { 
       this.petForm = this.formBuilder.group({
         name: ['', [Validators.required]],
         breed: ['',[Validators.required]],
@@ -31,15 +36,26 @@ export class UpdatePetModalComponent implements OnInit {
 
   ngOnInit() {
     this.getOwners();
+    
+
   }
   update() {
-    this.petService.update(this.pet,this.pet.id).subscribe(res => {
-        console.log(res);
+    this.petService.update(this.pet,this.pet.id).subscribe(() => {
+        this.openSnackBarAfterPetUpdate();
     });
 
   }
   onNoClick(): void {
     this.dialogRef.close();
+    
+
+  }
+  load() {
+    this.petService.getPets().subscribe((data: {}) => {
+      this.dataSource.data = data;
+      this.pets = data;
+
+    })
   }
   getOwners() {
     this.ownerService.getOwners().subscribe((data: {}) => {
@@ -47,5 +63,20 @@ export class UpdatePetModalComponent implements OnInit {
     });
 
   }
+  compareObjects(o1: any, o2: any): boolean {
+    return o1.name === o2.name && o1._id === o2._id;
+}
+selectOwner(event: Event) {
+  this.selectedOwner = (event.target as HTMLSelectElement).value;
+  console.log(this.selectedOwner)
+}
+openSnackBarAfterPetUpdate(){
+  this.snackBar.open('The pet was successfully updated!', 'Ok',{
+    duration: 5000,
+    horizontalPosition: this.horizontalPosition,
+    verticalPosition: this.verticalPosition,
+  });
+
+}
 
 }

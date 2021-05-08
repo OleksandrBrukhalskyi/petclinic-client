@@ -102,7 +102,8 @@ import { DeletePetModalComponent } from './modules/pets/delete-pet-modal/delete-
     UpdateModalComponent,
     AddSpecialtyModalComponent,
     UpdateSpecialtyModalComponent,
-    ModalOwnerDeleteComponent
+    ModalOwnerDeleteComponent,
+    DeletePetModalComponent
   ]
 })
 export class AppModule { }

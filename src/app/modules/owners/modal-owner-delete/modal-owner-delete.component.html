@@ -1,0 +1,7 @@
+<h2 mat-dialog-title>Delete Owner</h2>
+<h3>Are you sure you want to delete this owner?</h3>
+<p>{{owner.surname}} {{owner.firstname}} {{owner.patronymic}}</p>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>No</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial (click)="delete(owner.id)">Yes</button>
+  </mat-dialog-actions>

@@ -6,6 +6,7 @@ import { Pet } from 'src/app/model/pet.model';
 import { OwnerService } from 'src/app/services/owner.service';
 import { PetService } from 'src/app/services/pet.service';
 import { AddPetModalComponent } from './add-pet-modal/add-pet-modal.component';
+import { DeletePetModalComponent } from './delete-pet-modal/delete-pet-modal.component';
 import { UpdatePetModalComponent } from './update-pet-modal/update-pet-modal.component';
 
 @Component({
@@ -89,11 +90,11 @@ export class PetsComponent implements OnInit {
 
   }
   
-  delete(id: any) {
-    this.petService.delete(id).subscribe(() => {
-      this.getPets();
-    });
-  }
+  // delete(id: any) {
+  //   this.petService.delete(id).subscribe(() => {
+  //     this.getPets();
+  //   });
+  // }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -124,6 +125,17 @@ export class PetsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result)
 
+    })
+
+  }
+
+  openDialogOnDelete(pet: Pet) {
+    const dialogRef = this.dialog.open(DeletePetModalComponent,{
+      width: '500px',
+      data: pet
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.load();
     })
 
   }

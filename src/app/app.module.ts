@@ -25,6 +25,8 @@ import { AddSpecialtyModalComponent } from './modules/specialties/add-specialty-
 import { UpdateSpecialtyModalComponent } from './modules/specialties/update-specialty-modal/update-specialty-modal.component';
 import { ModalOwnerDeleteComponent } from './modules/owners/modal-owner-delete/modal-owner-delete.component';
 import { DeletePetModalComponent } from './modules/pets/delete-pet-modal/delete-pet-modal.component';
+import { DeleteSpecialtyModalComponent } from './modules/specialties/delete-specialty-modal/delete-specialty-modal.component';
+import { DeleteModalVetComponent } from './modules/veterinarians/delete-modal-vet/delete-modal-vet.component';
 
 
 
@@ -47,7 +49,9 @@ import { DeletePetModalComponent } from './modules/pets/delete-pet-modal/delete-
     AddSpecialtyModalComponent,
     UpdateSpecialtyModalComponent,
     ModalOwnerDeleteComponent,
-    DeletePetModalComponent
+    DeletePetModalComponent,
+    DeleteSpecialtyModalComponent,
+    DeleteModalVetComponent
     
     
     
@@ -103,7 +107,8 @@ import { DeletePetModalComponent } from './modules/pets/delete-pet-modal/delete-
     AddSpecialtyModalComponent,
     UpdateSpecialtyModalComponent,
     ModalOwnerDeleteComponent,
-    DeletePetModalComponent
+    DeletePetModalComponent,
+    DeleteSpecialtyModalComponent
   ]
 })
 export class AppModule { }

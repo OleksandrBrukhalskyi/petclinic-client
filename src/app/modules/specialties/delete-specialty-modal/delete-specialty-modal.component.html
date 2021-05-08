@@ -1,1 +1,7 @@
-<p>delete-specialty-modal works!</p>
+<h2 mat-dialog-title>Delete Specialty</h2>
+<h4>Are you sure you want to delete this specialty?</h4>
+<p>Specialty: {{specialty.name}}</p>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>No</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial (click)="delete(specialty.id)">Yes</button>
+</mat-dialog-actions>

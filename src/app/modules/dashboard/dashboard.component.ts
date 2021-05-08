@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OwnerService } from 'src/app/services/owner.service';
+import { PetService } from 'src/app/services/pet.service';
+import { VisitService } from 'src/app/services/visit.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,11 +11,20 @@ import { OwnerService } from 'src/app/services/owner.service';
 })
 export class DashboardComponent implements OnInit {
  
-  amount: Observable<any>;
-  constructor( public ownerService: OwnerService) { }
+  amountOfOwners: Observable<any>;
+  amountOfPets: Observable<any>;
+  amountOfVisits: Observable<any>;
+  income: Observable<any>;
+
+  constructor( public ownerService: OwnerService,public petService: PetService, public visitService: VisitService) { }
 
   ngOnInit() {
-    this.amount = this.ownerService.getQuantity();
+    this.amountOfOwners = this.ownerService.getQuantity();
+    this.amountOfPets = this.petService.amountOfPets();
+    this.income = this.visitService.income();
+    this.amountOfVisits = this.visitService.amount();
+    
+
     
   }
 

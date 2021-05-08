@@ -33,6 +33,8 @@ export class AddModalComponent implements OnInit {
 
   ngOnInit() {
     this.getSpecialties();
+    //this.load();
+
   }
 
   load() {

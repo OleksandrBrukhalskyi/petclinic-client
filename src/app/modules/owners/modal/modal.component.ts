@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Owner } from 'src/app/model/owner.model';
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialogRef, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MAT_DIALOG_DATA} from '@angular/material';
 import { OwnerService } from 'src/app/services/owner.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
@@ -12,10 +12,13 @@ export class ModalComponent  implements OnInit {
   ownerForm: FormGroup;
   dataSource: any;
   owners: any;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+
 
  
   constructor(public dialogRef: MatDialogRef<ModalComponent>,
-              @Inject(MAT_DIALOG_DATA) public owner: Owner, public ownerService: OwnerService,private formBuilder: FormBuilder
+              @Inject(MAT_DIALOG_DATA) public owner: Owner, public ownerService: OwnerService,private formBuilder: FormBuilder,private _snackBar: MatSnackBar
              ) {
               this.ownerForm = this.formBuilder.group({
                 surname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(32)]],
@@ -52,9 +55,19 @@ export class ModalComponent  implements OnInit {
       this.load();
       this.ownerForm.reset();
       this.ownerForm.setErrors(null);
+      this.openSnackBarAfterOwnerAdd();
+      
 
 
     });
+  }
+  openSnackBarAfterOwnerAdd(){
+    this._snackBar.open('The owner was successfully added!', 'Ok',{
+      duration: 3000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+
   }
 
 }

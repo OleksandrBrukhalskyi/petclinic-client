@@ -43,9 +43,9 @@ export class PetsComponent implements OnInit {
     return this.petForm.controls;
   }
   ngOnInit() {
+    this.getPets();
     this.getOwners();
     this.dataSource = new MatTableDataSource();
-    this.getPets();
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     

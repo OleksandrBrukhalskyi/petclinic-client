@@ -1,7 +1,7 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MAT_DIALOG_DATA } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Owner } from 'src/app/model/owner.model';
 import { OwnerService } from 'src/app/services/owner.service';
@@ -21,12 +21,13 @@ export class ModalUpdateComponent implements OnInit {
   owner: Owner;
   public id: number;
   
- 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
 
   constructor(public dialogRef: MatDialogRef<ModalUpdateComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Owner, public ownerService: OwnerService,private formBuilder: FormBuilder,private router: Router, private route: ActivatedRoute
-   ) {
+    @Inject(MAT_DIALOG_DATA) public data: Owner, public ownerService: OwnerService,private formBuilder: FormBuilder,private router: Router, private route: ActivatedRoute,
+              private _snackBar: MatSnackBar) {
 
     this.ownerForm = this.formBuilder.group({
       surname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(32)]],
@@ -74,9 +75,18 @@ export class ModalUpdateComponent implements OnInit {
   update() {
    
     this.ownerService.update(this.data,this.data.id).subscribe(res => {
-      console.log(res);
+      this.openSnackBarAfterOwnerUpdate();
+      
      
     })
   } 
+  openSnackBarAfterOwnerUpdate(){
+    this._snackBar.open('The owner was successfully updated!', 'Ok',{
+      duration: 5000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+
+  }
 
 }

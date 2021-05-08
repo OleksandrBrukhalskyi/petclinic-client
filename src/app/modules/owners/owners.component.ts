@@ -10,9 +10,10 @@ import { Owner } from 'src/app/model/owner.model';
 import { OwnerService } from 'src/app/services/owner.service';
 import { AuthService } from 'src/app/services/auth.service';
 
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog, MatDialogRef, MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MAT_DIALOG_DATA} from '@angular/material';
 import { ModalComponent } from './modal/modal.component';
 import { ModalUpdateComponent } from './modal-update/modal-update.component';
+import { ModalOwnerDeleteComponent } from './modal-owner-delete/modal-owner-delete.component';
 
 
 
@@ -37,15 +38,10 @@ export class OwnersComponent implements OnInit {
 
     ownerForm: FormGroup;
    
-    // ownerCurrent: Owner = {
-    //   id: '',
-    //   surname: '',
-    //   firstname: '',
-    //   patronymic: '',
-    //   homeAddress: '',
-    //   phoneNumber: ''
-    // }
-  constructor(public ownerService: OwnerService, private authService: AuthService, private formBuilder: FormBuilder, public dialog: MatDialog) {
+    
+  
+    
+  constructor(public ownerService: OwnerService, private authService: AuthService, private formBuilder: FormBuilder, public dialog: MatDialog, private _snackBar: MatSnackBar) {
       this.ownerForm = this.formBuilder.group({
         surname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(32)]],
         firstname: ['', [Validators.required,Validators.minLength(3), Validators.maxLength(32)]],
@@ -78,6 +74,16 @@ export class OwnersComponent implements OnInit {
 
     })
 
+  }
+  openDialogDelete(owner: Owner) {
+    const dialogRef = this.dialog.open(ModalOwnerDeleteComponent,{
+      width: '500px',
+      data: owner
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      this.load();
+
+    })
   }
    public get f() {
     return this.ownerForm.controls;
@@ -137,11 +143,11 @@ export class OwnersComponent implements OnInit {
     }
   }
 
-  delete(id: any) {
-    this.ownerService.delete(id).subscribe(() => {
-      this.load();
-    });
-  }
+  // delete(id: any) {
+  //   this.ownerService.delete(id).subscribe(() => {
+  //     this.load();
+  //   });
+  // }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -153,5 +159,6 @@ export class OwnersComponent implements OnInit {
   logout(){
     this.authService.logout();
   }
+  
 
 }

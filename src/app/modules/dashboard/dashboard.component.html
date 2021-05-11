@@ -8,10 +8,10 @@
         <h1>{{amountOfPets | async}}</h1>
     </mat-card>
     <mat-card fxFlex="25" align="center">
-        <h4>Income</h4>
+        <h4>Total Income</h4>
         <h1>{{income | async}} ₴</h1>
     </mat-card>
-    <mat-card fxFlex="25"  align="center">
+    <mat-card fxFlex="25" align="center">
         <h4>Amount of visits</h4>
         <h1>{{amountOfVisits | async}}</h1>
     </mat-card>
@@ -20,8 +20,17 @@
 <mat-divider></mat-divider>
 
 <div>
-    <div>Line chart</div>
-    <div>Line chart</div>
+    <br>
+    <div>
+        <app-widget-area></app-widget-area>
+    </div>
+    <br>
+    <div fxLayoutAlign="space-between center" fxLayoutGap="20px">
+        <app-widget-pie fxFlex="40"></app-widget-pie>
+        <app-widget-column fxFlex="60"></app-widget-column>
+
+    </div>
+
     <div>Line chart</div>
     <div>Line chart</div>
 </div>

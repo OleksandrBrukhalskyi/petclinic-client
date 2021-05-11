@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MAT_DIALOG_DATA } from '@angular/material';
 import { Specialty } from 'src/app/model/specialty.model';
 import { Veterinarian } from 'src/app/model/veterinarian.model';
 import { SpecialtyService } from 'src/app/services/specialty.service';
@@ -17,6 +17,8 @@ export class AddModalComponent implements OnInit {
   dataSource: any;
   veterinarians: any;
   specialties: any;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   constructor(public dialogRef: MatDialogRef<AddModalComponent>,
               @Inject(MAT_DIALOG_DATA) public vet: Veterinarian, @Inject(MAT_DIALOG_DATA) public specialty: Specialty,

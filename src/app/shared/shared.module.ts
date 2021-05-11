@@ -18,6 +18,12 @@ import { AddModalComponent } from '../modules/veterinarians/add-modal/add-modal.
 import { UpdateModalComponent } from '../modules/veterinarians/update-modal/update-modal.component';
 import { AddSpecialtyModalComponent } from '../modules/specialties/add-specialty-modal/add-specialty-modal.component';
 import { UpdateSpecialtyModalComponent } from '../modules/specialties/update-specialty-modal/update-specialty-modal.component';
+import { AreaComponent } from './widgets/area/area.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { PieComponent } from './widgets/pie/pie.component';
+import { ColumnComponent } from './widgets/column/column.component';
+
+
 
 
 
@@ -26,7 +32,10 @@ import { UpdateSpecialtyModalComponent } from '../modules/specialties/update-spe
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    CardComponent  
+    CardComponent,
+    AreaComponent,
+    PieComponent,
+    ColumnComponent  
   ],
   imports: [
     CommonModule,
@@ -48,6 +57,8 @@ import { UpdateSpecialtyModalComponent } from '../modules/specialties/update-spe
     ReactiveFormsModule,
     FormsModule,
     MatCardModule,
+    HighchartsChartModule
+    
     
     
    
@@ -74,7 +85,10 @@ import { UpdateSpecialtyModalComponent } from '../modules/specialties/update-spe
     ReactiveFormsModule,
     FormsModule,
     MatCardModule,
-    CardComponent
+    CardComponent,
+    AreaComponent,
+    PieComponent,
+    ColumnComponent 
     
        
   ],

@@ -26,6 +26,9 @@ import { UpdateSpecialtyModalComponent } from './modules/specialties/update-spec
 import { ModalOwnerDeleteComponent } from './modules/owners/modal-owner-delete/modal-owner-delete.component';
 import { DeletePetModalComponent } from './modules/pets/delete-pet-modal/delete-pet-modal.component';
 import { DeleteSpecialtyModalComponent } from './modules/specialties/delete-specialty-modal/delete-specialty-modal.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { VisitsComponent } from './modules/visits/visits.component';
+import { AddVisitModalComponent } from './modules/visits/add-visit-modal/add-visit-modal.component';
 
 
 
@@ -49,7 +52,9 @@ import { DeleteSpecialtyModalComponent } from './modules/specialties/delete-spec
     UpdateSpecialtyModalComponent,
     ModalOwnerDeleteComponent,
     DeletePetModalComponent,
-    DeleteSpecialtyModalComponent
+    DeleteSpecialtyModalComponent,
+    VisitsComponent,
+    AddVisitModalComponent
     
     
     
@@ -84,6 +89,7 @@ import { DeleteSpecialtyModalComponent } from './modules/specialties/delete-spec
     MatSelectModule,
     MatTableModule,
     MatDividerModule,
+    HighchartsChartModule
     
     
     

@@ -62,6 +62,8 @@ export class AddPetModalComponent implements OnInit {
      this.petForm.reset();
      this.petForm.setErrors(null);
      this.openSnackBarAfterPetAdd();
+     this.load();
+     
 
 
    });

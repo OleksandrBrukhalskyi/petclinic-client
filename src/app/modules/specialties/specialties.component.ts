@@ -4,6 +4,7 @@ import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/m
 import { Specialty } from 'src/app/model/specialty.model';
 import { SpecialtyService } from 'src/app/services/specialty.service';
 import { AddSpecialtyModalComponent } from './add-specialty-modal/add-specialty-modal.component';
+import { DeleteSpecialtyModalComponent } from './delete-specialty-modal/delete-specialty-modal.component';
 import { UpdateSpecialtyModalComponent } from './update-specialty-modal/update-specialty-modal.component';
 
 @Component({
@@ -54,7 +55,7 @@ export class SpecialtiesComponent implements OnInit {
 
   update() {
     this.specialtyService.update(this.specialty, this.specialty.id).subscribe(data => {
-
+        
     });
 
   }
@@ -102,6 +103,15 @@ export class SpecialtiesComponent implements OnInit {
 
     })
 
+  }
+  openDialogOnDelete(specialty: Specialty) {
+    const dialogRef = this.dialog.open(DeleteSpecialtyModalComponent, {
+      width:'500px',
+      data: specialty
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.getSpecialties();
+    })
   }
 
 

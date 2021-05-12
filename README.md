@@ -1,4 +1,11 @@
 # PetclinicClient
+I am going to describe the project's parts soon.
+
+Dashboard
+![image](https://user-images.githubusercontent.com/46578065/117973319-ebc29000-b334-11eb-9ee5-bfd0f7e2d516.png)
+
+![image](https://user-images.githubusercontent.com/46578065/117973385-0268e700-b335-11eb-8289-7d9f1fcc0067.png)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
 

@@ -1,0 +1,45 @@
+<h2>Visits</h2>
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+</mat-form-field>
+<mat-table #table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+        <mat-cell *matCellDef="let visit">{{visit.id}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="goalOfVisit">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Goal of visit</mat-header-cell>
+        <mat-cell *matCellDef="let visit">{{visit.goalOfVisit}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+        <mat-cell *matCellDef="let visit">{{visit.price}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="visitDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Visit DateTime</mat-header-cell>
+        <mat-cell *matCellDef="let visit">{{visit.visitDate}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="pet">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Pet</mat-header-cell>
+        <mat-cell *matCellDef="let visit">{{visit.pet.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let visit">
+            <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
+                <mat-icon aria-label="Edit" (click)="openDialogOnUpdate(visit)">edit</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn">
+                <mat-icon aria-label="Delete" (click)="openDialogOnDelete(visit)">delete</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let visit; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+<button mat-fab color="primary" (click)="openDialogOnCreate()">
+    <mat-icon>add</mat-icon>
+</button>

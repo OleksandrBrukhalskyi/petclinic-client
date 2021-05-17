@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MatButtonModule, MatCardModule, MatDialogRef, MatDividerModule, MatFormFieldControl, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatDialogModule, MatDialogRef, MatDividerModule, MatFormFieldControl, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatPaginatorModule, MatToolbarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
-import {MatTableModule} from "@angular/material/table";
-import {MatSortModule} from "@angular/material/sort";
-import {CdkTableModule} from "@angular/cdk/table";
+import { MatTableModule } from "@angular/material/table";
+import { MatSortModule } from "@angular/material/sort";
+import { CdkTableModule } from "@angular/cdk/table";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './widgets/card/card.component';
 import { ModalComponent } from '../modules/owners/modal/modal.component';
@@ -22,6 +22,17 @@ import { AreaComponent } from './widgets/area/area.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { PieComponent } from './widgets/pie/pie.component';
 import { ColumnComponent } from './widgets/column/column.component';
+import { AddVisitModalComponent } from '../modules/visits/add-visit-modal/add-visit-modal.component';
+import { UpdateVisitModalComponent } from '../modules/visits/update-visit-modal/update-visit-modal.component';
+import { DeleteVisitModalComponent } from '../modules/visits/delete-visit-modal/delete-visit-modal.component';
+import { DeleteModalVetComponent } from '../modules/veterinarians/delete-modal-vet/delete-modal-vet.component';
+import { ModalOwnerDeleteComponent } from '../modules/owners/modal-owner-delete/modal-owner-delete.component';
+import { DeletePetModalComponent } from '../modules/pets/delete-pet-modal/delete-pet-modal.component';
+import { UpdatePetModalComponent } from '../modules/pets/update-pet-modal/update-pet-modal.component';
+import { DeleteSpecialtyModalComponent } from '../modules/specialties/delete-specialty-modal/delete-specialty-modal.component';
+import { SpecialtiesComponent } from '../modules/specialties/specialties.component';
+import { VeterinariansComponent } from '../modules/veterinarians/veterinarians.component';
+import { VisitsComponent } from '../modules/visits/visits.component';
 
 
 
@@ -35,7 +46,7 @@ import { ColumnComponent } from './widgets/column/column.component';
     CardComponent,
     AreaComponent,
     PieComponent,
-    ColumnComponent  
+    ColumnComponent,
   ],
   imports: [
     CommonModule,
@@ -58,14 +69,14 @@ import { ColumnComponent } from './widgets/column/column.component';
     FormsModule,
     MatCardModule,
     HighchartsChartModule
-    
-    
-    
    
-    
-    
-    
-    
+
+
+
+
+
+
+
   ],
   exports: [
     HeaderComponent,
@@ -88,18 +99,35 @@ import { ColumnComponent } from './widgets/column/column.component';
     CardComponent,
     AreaComponent,
     PieComponent,
-    ColumnComponent 
-    
-       
+    ColumnComponent,
+    MatDialogModule,
+
+   
+
+
   ],
-  entryComponents:[
-    ModalComponent,
-    ModalUpdateComponent,
+  entryComponents: [
     AddPetModalComponent,
+    UpdatePetModalComponent,
+    VeterinariansComponent,
     AddModalComponent,
     UpdateModalComponent,
+    SpecialtiesComponent,
     AddSpecialtyModalComponent,
-    UpdateSpecialtyModalComponent
+    UpdateSpecialtyModalComponent,
+    ModalOwnerDeleteComponent,
+    DeletePetModalComponent,
+    DeleteSpecialtyModalComponent,
+    VisitsComponent,
+    AddVisitModalComponent,
+    UpdateVisitModalComponent,
+    DeleteVisitModalComponent,
+    UpdateVisitModalComponent,
+    ModalComponent,
+    ModalUpdateComponent,
+    DeleteModalVetComponent
+
+    
   ]
 })
 export class SharedModule { }

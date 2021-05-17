@@ -6,6 +6,7 @@ import { Veterinarian } from 'src/app/model/veterinarian.model';
 import { SpecialtyService } from 'src/app/services/specialty.service';
 import { VeterinarianService } from 'src/app/services/veterinarian.service';
 import { AddModalComponent } from './add-modal/add-modal.component';
+import { DeleteModalVetComponent } from './delete-modal-vet/delete-modal-vet.component';
 import { UpdateModalComponent } from './update-modal/update-modal.component';
 
 @Component({
@@ -15,10 +16,10 @@ import { UpdateModalComponent } from './update-modal/update-modal.component';
 })
 export class VeterinariansComponent implements OnInit {
 
-  displayedColumns = ['id', 'surname', 'firstname', 'patronymic','specialty','actions'];
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  
+  displayedColumns = ['id', 'surname', 'firstname', 'patronymic', 'specialty', 'actions'];
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
   veterinarians: any;
   specialties: any;
   public dataSource: any;
@@ -27,16 +28,16 @@ export class VeterinariansComponent implements OnInit {
   vetForm: FormGroup;
 
 
-  constructor(private specialtyService: SpecialtyService, private veterinarianService: VeterinarianService, 
-              private formBuilder: FormBuilder, public dialog: MatDialog) { 
+  constructor(private specialtyService: SpecialtyService, private veterinarianService: VeterinarianService,
+    private formBuilder: FormBuilder, public dialog: MatDialog) {
 
-        this.vetForm = this.formBuilder.group({
-            surname: ['', [Validators.required]],
-            firstname: ['', [Validators.required]],
-            patronymic: [''],
-            specialty: ['',[Validators.required]]
+    this.vetForm = this.formBuilder.group({
+      surname: ['', [Validators.required]],
+      firstname: ['', [Validators.required]],
+      patronymic: [''],
+      specialty: ['', [Validators.required]]
 
-        });
+    });
 
   }
   public get f() {
@@ -49,29 +50,29 @@ export class VeterinariansComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.getVeterinarians();
     this.getSpecialties();
-    
+
   }
 
   create() {
     this.veterinarianService.add(this.veterinarian).subscribe(data => {
-        this.getVeterinarians();
-        this.vetForm.setErrors(null);
-        this.vetForm.reset();
-        
+      this.getVeterinarians();
+      this.vetForm.setErrors(null);
+      this.vetForm.reset();
+
 
     });
 
   }
 
   getSpecialties() {
-    this.specialtyService.getSpecialties().subscribe((data:{}) => {
+    this.specialtyService.getSpecialties().subscribe((data: {}) => {
       this.specialties = data;
     });
 
   }
   getVeterinarians() {
-    this.veterinarianService.getVeterinarians().subscribe((data:{}) => {
-      this.dataSource.data = data;
+    this.veterinarianService.getVeterinarians().subscribe((data: {}) => {
+      this.dataSource = data;
       this.veterinarians = data;
     });
 
@@ -79,7 +80,7 @@ export class VeterinariansComponent implements OnInit {
 
   update() {
     this.veterinarianService.update(this.veterinarian, this.veterinarian.id).subscribe(() => {
-        this.getVeterinarians();
+      this.getVeterinarians();
     });
 
   }
@@ -97,7 +98,7 @@ export class VeterinariansComponent implements OnInit {
 
   }
   openDialogOnCreate() {
-    const dialogRef = this.dialog.open(AddModalComponent,{
+    const dialogRef = this.dialog.open(AddModalComponent, {
       width: '800px',
       data: {}
     });
@@ -108,14 +109,32 @@ export class VeterinariansComponent implements OnInit {
   }
 
   openDiaglogOnUpdate(veterinarian: Veterinarian) {
-    const dialogRef = this.dialog.open(UpdateModalComponent,{
+    const dialogRef = this.dialog.open(UpdateModalComponent, {
       width: '800px',
       data: veterinarian
     });
     dialogRef.afterClosed().subscribe(data => {
-      console.log(data);
+      //console.log(data);
+      this.load();
+      
     })
   }
 
+  openDiaglogOnDelete(veterinarian: Veterinarian) {
+    const dialogRef = this.dialog.open(DeleteModalVetComponent, {
+      width: '800px',
+      data: veterinarian
+    });
+    dialogRef.afterClosed().subscribe(data => {
+      //console.log(data);
+    })
+  }
+  load() {
+    this.veterinarianService.getVeterinarians().subscribe((data: {}) => {
+      this.dataSource.data = data;
+      this.veterinarians = data;
+
+    })
+  }
 
 }

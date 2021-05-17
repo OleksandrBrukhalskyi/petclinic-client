@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>Adding visit</h1>
+<form [formGroup]="visitForm" class="example-form" (ngSubmit)="create()">
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+            <td>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Goal of visit</mat-label>
+                    <input matInput formControlName="goalOfVisit" type="text" name="goalOfVisit" required/>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Price</mat-label>
+                    <input matInput formControlName="price" type="number" name="price" required/>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Pet</mat-label>
+                    <mat-select formControlName="pet" name="pet">
+                        <mat-option *ngFor="let pet of pets" [value]="pet.id">
+                            {{pet.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Visit DateTime</mat-label>
+                    <input matInput type="datetime-local" formControlName="visitDate" name="visitDate" min="2017-01-01T09:30" max="2022-12-31T17:30"required/>
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>
+    <button  mat-button (click)="onNoClick()">Add</button>
+</form>

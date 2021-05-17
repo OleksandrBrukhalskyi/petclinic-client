@@ -9,19 +9,18 @@ import { SpecialtyService } from 'src/app/services/specialty.service';
   styleUrls: ['./delete-specialty-modal.component.scss']
 })
 export class DeleteSpecialtyModalComponent implements OnInit {
-
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
-  constructor(public dialogRef: MatDialogRef<DeleteSpecialtyModalComponent>, @Inject(MAT_DIALOG_DATA) public specialty: Specialty,public specialtyService: SpecialtyService,
-              private snackBar: MatSnackBar) { }
+  constructor(public dialogRef: MatDialogRef<DeleteSpecialtyModalComponent>, @Inject(MAT_DIALOG_DATA) public specialty: Specialty,
+              private specialtyService: SpecialtyService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
 
-  delete(id: any) {
+  delete(id: number) {
     this.specialtyService.delete(id).subscribe(() => {
-        this.openSnackBarAfterSpecialtyDelete()
+      this.openSnackBarAfterSpecialtyDelete()
     })
   }
   openSnackBarAfterSpecialtyDelete(){
@@ -30,7 +29,6 @@ export class DeleteSpecialtyModalComponent implements OnInit {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
     });
-
+  
   }
-
 }

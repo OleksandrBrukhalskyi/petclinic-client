@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule, MatCardModule, MatChipsModule, MatCheckboxModule, MatInputModule, MatIconModule, MatButtonModule, MatRippleModule, MatDialogModule, MatExpansionModule, MatProgressSpinnerModule, MatSnackBarModule, MatToolbarModule, MatTableModule, MatTableDataSource, MatSortModule, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatDividerModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './modules/login/login.component';
-import {CdkTableModule} from "@angular/cdk/table";
+import { CdkTableModule } from "@angular/cdk/table";
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ModalComponent } from './modules/owners/modal/modal.component';
 import { ModalUpdateComponent } from './modules/owners/modal-update/modal-update.component';
@@ -30,6 +30,9 @@ import { DeleteSpecialtyModalComponent } from './modules/specialties/delete-spec
 import { HighchartsChartModule } from 'highcharts-angular';
 import { VisitsComponent } from './modules/visits/visits.component';
 import { AddVisitModalComponent } from './modules/visits/add-visit-modal/add-visit-modal.component';
+import { UpdateVisitModalComponent } from './modules/visits/update-visit-modal/update-visit-modal.component';
+import { DeleteVisitModalComponent } from './modules/visits/delete-visit-modal/delete-visit-modal.component';
+import { DeleteModalVetComponent } from './modules/veterinarians/delete-modal-vet/delete-modal-vet.component';
 
 
 
@@ -57,13 +60,14 @@ import { AddVisitModalComponent } from './modules/visits/add-visit-modal/add-vis
     DeletePetModalComponent,
     DeleteSpecialtyModalComponent,
     VisitsComponent,
-    AddVisitModalComponent
+    AddVisitModalComponent,
+    UpdateVisitModalComponent,
+    DeleteVisitModalComponent,
+    DeleteModalVetComponent,
+    
 
-  
 
-    
-    
-    
+
   ],
   imports: [
     BrowserModule,
@@ -95,30 +99,33 @@ import { AddVisitModalComponent } from './modules/visits/add-visit-modal/add-vis
     MatSelectModule,
     MatTableModule,
     MatDividerModule,
-    HighchartsChartModule
-    
-    
-    
-    
+    HighchartsChartModule,
+
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    {provide: MAT_DIALOG_DATA, useValue: {}},
+    { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} }
   ],
   bootstrap: [AppComponent],
-  entryComponents:[
-    ModalComponent,
-    ModalUpdateComponent,
+  entryComponents: [
     AddPetModalComponent,
     UpdatePetModalComponent,
+    VeterinariansComponent,
     AddModalComponent,
     UpdateModalComponent,
+    SpecialtiesComponent,
     AddSpecialtyModalComponent,
     UpdateSpecialtyModalComponent,
     ModalOwnerDeleteComponent,
     DeletePetModalComponent,
-    DeleteSpecialtyModalComponent
+    DeleteSpecialtyModalComponent,
+    VisitsComponent,
+    AddVisitModalComponent,
+    UpdateVisitModalComponent,
+    DeleteVisitModalComponent,
+    DeleteModalVetComponent
   ]
 })
 export class AppModule { }

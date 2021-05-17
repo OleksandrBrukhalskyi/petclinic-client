@@ -1,7 +1,7 @@
-<h2 mat-dialog-title>Delete Owner</h2>
-<h4>Are you sure you want to delete this pet?</h4>
-<p>Name: {{pet.name}} of  owner {{pet.owner.surname}} {{pet.owner.firstname}}</p>
+<h2 mat-dialog-title>Видалення тварини</h2>
+<h4>Ви дійсно хочете видалити цю тварину?</h4>
+<p>Кличка: {{pet.name}} даного власника {{pet.owner.surname}} {{pet.owner.firstname}}</p>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>No</button>
-    <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial (click)="delete(pet.id)">Yes</button>
+    <button mat-button mat-dialog-close>Ні</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial (click)="delete(pet.id)">Так</button>
 </mat-dialog-actions>

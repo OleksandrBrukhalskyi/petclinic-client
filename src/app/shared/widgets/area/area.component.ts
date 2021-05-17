@@ -30,7 +30,7 @@ export class AreaComponent implements OnInit {
 
         },
         title: {
-          text: 'Income by Date and Time of visit'
+          text: 'Прибуток за весь час по датам візитів'
         },
         xAxis: {
 

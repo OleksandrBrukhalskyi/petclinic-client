@@ -1,34 +1,33 @@
-<h1 mat-dialog-title>Adding owner</h1>
+<h1 mat-dialog-title>Додавання власника</h1>
 <form [formGroup]="ownerForm" class="example-form" (ngSubmit)="create()"  >
   <table class="example-full-width" cellspacing="0"><tr>
     <td><mat-form-field class="example-full-width">
-      <mat-label>Surname</mat-label>
+      <mat-label>Прізвище</mat-label>
       <input matInput formControlName="surname"   type="text"  name="surname" required/>
     </mat-form-field></td>
     <td><mat-form-field class="example-full-width">
-      <mat-label>Firstname</mat-label>
+      <mat-label>Ім'я </mat-label>
       <input matInput formControlName="firstname" type="text"  name="firstname" required/>
     </mat-form-field></td>
     <td><mat-form-field class="example-full-width">
-      <mat-label>Patronymic</mat-label>
+      <mat-label>По-батькові</mat-label>
       <input matInput formControlName="patronymic" type="text"  name="patronymic" required/>
     </mat-form-field></td>
   </tr>
   </table>
    <p>
      <mat-form-field class="example-full-width">
-       <mat-label>Address</mat-label>
+       <mat-label>Домашня адреса</mat-label>
        <textarea matInput formControlName="homeAddress" name="address" required></textarea>
      </mat-form-field>
    <p>
    <mat-form-field class="example-full-width">
-     <mat-label>Phone number</mat-label>
+     <mat-label>Номер телефону</mat-label>
      <span matPrefix>+38 &nbsp;</span>
      <input type="tel" matInput formControlName="phoneNumber" maxlength="10" name="phoneNumber" required/>
      <mat-icon matSuffix>mode_edit</mat-icon>
    </mat-form-field>
    </p>
-   <button mat-button (click)="onNoClick()">Add
+   <button mat-button (click)="onNoClick()">Додати
    </button>
  </form>
-

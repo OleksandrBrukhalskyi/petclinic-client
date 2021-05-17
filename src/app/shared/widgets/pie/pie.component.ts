@@ -20,7 +20,7 @@ export class PieComponent implements OnInit {
     this.visitService.incomePerVisits().subscribe((data) => {
       this.dataKey = Object.keys(data);
       this.dataVal = Object.values(data);
-    
+
 
       this.chartOptions = {
         chart: {
@@ -30,7 +30,7 @@ export class PieComponent implements OnInit {
           type: 'pie'
         },
         title: {
-          text: 'Total income per goal of visit'
+          text: 'Загальний прибуток згрупований по меті візиту'
         },
         credits: {
           enabled: false

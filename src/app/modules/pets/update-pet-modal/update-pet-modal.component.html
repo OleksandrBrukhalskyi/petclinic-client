@@ -1,28 +1,28 @@
-<h1 mat-dialog-title>Updating pet</h1>
+<h1 mat-dialog-title>Оновлення тварини</h1>
 <form class="example-form" name="form" (ngSubmit)="update()">
   <table class="example-full-width" cellspacing="0">
     <tr>
       <td>
         <mat-form-field class="example-full-width">
-          <mat-label>Name</mat-label>
+          <mat-label>Ім'я</mat-label>
           <input matInput [(ngModel)]="pet.name" type="text" name="name" required />
         </mat-form-field>
       </td>
       <td>
         <mat-form-field class="example-full-width">
-          <mat-label>Breed</mat-label>
+          <mat-label>Порода</mat-label>
           <input matInput [(ngModel)]="pet.breed" type="text" name="breed">
         </mat-form-field>
       </td>
       <td>
         <mat-form-field class="example-full-width">
-          <mat-label>Date of Birth</mat-label>
+          <mat-label>Дата народження</mat-label>
           <input matInput [(ngModel)]="pet.dateOfBirth" type="date" name="dateOfBirth">
         </mat-form-field>
       </td>
       <td>
         <mat-form-field class="example-full-width">
-          <mat-label>Owner</mat-label>
+          <mat-label>Власник</mat-label>
           <mat-select [(ngModel)]="pet.owner" name="owner">
             <mat-option *ngFor="let owner of owners" [value]="owner.id">
               {{owner.surname + " " + " " + owner.firstname+" " +" " + owner.patronymic}}
@@ -32,5 +32,5 @@
       </td>
     </tr>
   </table>
-  <button mat-button (click)="onNoClick()">Add</button>
+  <button mat-button (click)="onNoClick()">Оновити</button>
 </form>

@@ -1,40 +1,40 @@
 <h1 mat-dialog-title>Update owner</h1>
-<div> 
+<div>
     <form class="example-form" (ngSubmit)="update()">
       <table class="example-full-width" cellspacing="0"><tr>
         <td>
         <mat-form-field>
-          <mat-label>Surname</mat-label>
-         
+          <mat-label>Прізвище</mat-label>
+
           <input  matInput type="text" [(ngModel)]="data.surname" name="surname" required >
           </mat-form-field>
-         
-        
+
+
         </td>
         <td><mat-form-field class="example-full-width">
-          <mat-label>Firstname</mat-label>
+          <mat-label>Ім'я </mat-label>
           <input matInput [(ngModel)]="data.firstname" type="text" name="firstname"  required/>
         </mat-form-field></td>
         <td><mat-form-field class="example-full-width">
-          <mat-label>Patronymic</mat-label>
+          <mat-label>По-батькові</mat-label>
           <input matInput  [(ngModel)]="data.patronymic"type="text"  name="patronymic" required/>
         </mat-form-field></td>
       </tr>
       </table>
        <p>
          <mat-form-field class="example-full-width">
-           <mat-label>Address</mat-label>
+           <mat-label>Адреса</mat-label>
            <textarea matInput [(ngModel)]="data.homeAddress" name="address" required></textarea>
          </mat-form-field>
        <p>
        <mat-form-field class="example-full-width">
-         <mat-label>Phone number</mat-label>
+         <mat-label>Номер телефону</mat-label>
          <span matPrefix>+38 &nbsp;</span>
          <input type="tel" matInput [(ngModel)]="data.phoneNumber" maxlength="10" name="phoneNumber" required/>
          <mat-icon matSuffix>mode_edit</mat-icon>
        </mat-form-field>
        </p>
-       <button mat-button (click)="onNoClick()">Add
+       <button mat-button (click)="onNoClick()">Оновити
        </button>
      </form>
     </div>

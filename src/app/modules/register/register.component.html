@@ -2,12 +2,13 @@
     <span>PETCLINIC</span>
 </mat-toolbar>
 <mat-card>
+    <h3>Реєстрація</h3>
     <form [formGroup]="registerForm"  (ngSubmit)="signUp()">
         <p>
-        <mat-form-field hintLabel="Max 32 characters" appearance="fill">
+        <mat-form-field appearance="fill">
             <mat-label>Surname</mat-label>
             <input matInput type="text" formControlName="surname" #input maxlength="32" placeholder="Ex. Іванов" required>
-            
+
             <mat-error *ngIf="f.surname.hasError('minLength')">
                 Surname has to be at least <strong>3 characters</strong>
             </mat-error>
@@ -15,40 +16,40 @@
         </mat-form-field>
         </p>
         <p>
-        <mat-form-field hintLabel="Max 32 characters" appearance="fill">
+        <mat-form-field appearance="fill">
             <mat-label>Firstname</mat-label>
             <input matInput type="text" formControlName="firstname" #input maxlength="32" placeholder="Ex. Олександр" required>
-            
+
             <mat-error *ngIf="f.surname.hasError('minLength')">
                 Firstname has to be at least <strong>15 characters</strong>
             </mat-error>
         </mat-form-field>
         </p>
         <p>
-        <mat-form-field hintLabel="Max 32 characters" appearance="fill">
+        <mat-form-field appearance="fill">
             <mat-label>Patronymic</mat-label>
             <input matInput type="text" formControlName="patronymic" #input maxlength="32" placeholder="Ex. Іванович">
-            
+
             <mat-error *ngIf="f.patronymic.hasError('minLength')">
                 Patronymic has to be at least <strong>15 characters</strong>
             </mat-error>
         </mat-form-field>
         </p>
         <p>
-        <mat-form-field hintLabel="Max 32 characters" appearance="fill">
+        <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>
             <input matInput type="email" formControlName="email" #input maxlength="64" placeholder="Ex. ivanovoi@gmail.com">
-            
+
             <mat-error *ngIf="f.email.hasError('email')">
                 Email is <strong>invalid</strong>
             </mat-error>
         </mat-form-field>
         </p>
         <p>
-        <mat-form-field hintLabel="Max 32 characters" appearance="fill">
+        <mat-form-field  appearance="fill">
             <mat-label>Login</mat-label>
             <input matInput type="text" formControlName="login" #input maxlength="32" placeholder="Ex. alex1">
-            
+
             <mat-error *ngIf="f.login.hasError('minLength')">
                 Login has to be at least <strong>4 characters</strong>
             </mat-error>
@@ -56,7 +57,7 @@
         </p>
         <p>
             <mat-form-field appearance="fill" color="accent">
-                <mat-label>Password</mat-label> 
+                <mat-label>Password</mat-label>
                 <input matInput type="{{ hidePassword ? 'password' : 'text' }}" formControlName="password" maxlength="16" required (input)="onPasswordInput()">
                 <mat-icon class="no-select" (click)="hidePassword = !hidePassword" matSuffix>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
                 <mat-error *ngIf="f.password.hasError('required')">
@@ -71,7 +72,7 @@
             </mat-form-field>
         </p>
             <mat-form-field appearance="fill" color="accent">
-                <mat-label>Confirm Password</mat-label> 
+                <mat-label>Confirm Password</mat-label>
                 <input matInput type="{{ hideConfirm ? 'password' : 'text' }}" formControlName="confirm" maxlength="16" required (input)="onPasswordInput()">
                 <mat-icon class="no-select" (click)="hideConfirm = !hideConfirm" matSuffix>{{ hideConfirm ? 'visibility_off' : 'visibility' }}</mat-icon>
                 <mat-error *ngIf="registerForm.get('confirm').invalid">
@@ -80,11 +81,10 @@
             </mat-form-field>
         <p>
         <button mat-raised-button [disabled]="loading">
-            Register
+            Зареєструватись
             <mat-spinner *ngIf="loading" matSuffix diameter="30" color="accent"></mat-spinner>
         </button>
         </p>
     </form>
 
 </mat-card>
-

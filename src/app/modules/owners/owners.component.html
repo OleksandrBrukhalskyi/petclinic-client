@@ -1,6 +1,6 @@
 
 
-<h2>Owners</h2>
+<h2>Власники</h2>
 <mat-form-field>
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
@@ -11,7 +11,7 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
         <mat-cell *matCellDef="let owner">{{owner.id}}</mat-cell>
     </ng-container>
-  
+
     <ng-container matColumnDef="surname">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Surname</mat-header-cell>
       <mat-cell  *matCellDef="let owner">{{owner.surname}}
@@ -28,7 +28,7 @@
         </span>
       </mat-cell>
     </ng-container>
-  
+
     <ng-container matColumnDef="patronymic">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Patronymic </mat-header-cell>
       <mat-cell *matCellDef="let owner">{{owner.patronymic}}
@@ -37,7 +37,7 @@
         </span>
       </mat-cell>
     </ng-container>
-  
+
     <ng-container matColumnDef="address">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
       <mat-cell *matCellDef="let owner">{{owner.homeAddress}}
@@ -46,7 +46,7 @@
         </span>
       </mat-cell>
     </ng-container>
-  
+
     <ng-container matColumnDef="phone_number">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
       <mat-cell *matCellDef="let owner">{{owner.phoneNumber}}
@@ -55,7 +55,7 @@
         </span>
       </mat-cell>
     </ng-container>
-  
+
     <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
       <mat-cell *matCellDef="let owner">

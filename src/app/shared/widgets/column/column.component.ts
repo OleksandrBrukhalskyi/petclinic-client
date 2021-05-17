@@ -24,7 +24,7 @@ export class ColumnComponent implements OnInit {
           type: 'column'
         },
         title: {
-          text: 'Owners grouped by amount of pets'
+          text: 'Згруповані власники по кількості тварин'
         },
 
         xAxis: {
@@ -39,7 +39,7 @@ export class ColumnComponent implements OnInit {
           ],
           crosshair: true
         },
-       
+
         plotOptions: {
           column: {
             pointPadding: 0.2,
@@ -92,10 +92,10 @@ export class ColumnComponent implements OnInit {
     );
 
   }
-  
 
 
-  
+
+
 
   ngOnInit() {
     setTimeout(() => {

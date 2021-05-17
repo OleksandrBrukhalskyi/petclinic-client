@@ -8,17 +8,17 @@
 
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
-                
+
                     <button mat-button [matMenuTriggerFor]="menu">
                         <mat-icon>person_outline</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
                     <button  mat-menu-item (click)="logout()" >
                         <mat-icon>exit_to_app</mat-icon>
-                        Sign out
+                        Вийти
                     </button>
                     </mat-menu>
-                
+
             </ul>
         </div>
     </mat-toolbar-row>

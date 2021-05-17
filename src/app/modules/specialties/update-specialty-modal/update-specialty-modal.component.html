@@ -1,14 +1,14 @@
-<h1 mat-dialog-title>Updating specialty</h1>
+<h1 mat-dialog-title>Оновлення спеціальності</h1>
 <form class="example-form" (ngSubmit)="update()">
     <table class="example-full-width">
         <tr>
             <td>
                 <mat-form-field class="example-full-width">
-                    <mat-label>Name</mat-label>
+                    <mat-label>Назва</mat-label>
                     <input matInput [(ngModel)]="specialty.name" type="text" name="name" required/>
                   </mat-form-field>
             </td>
         </tr>
     </table>
-    <button  mat-button (click)="onNoClick()">Update</button>
+    <button  mat-button (click)="onNoClick()">Оновити</button>
 </form>

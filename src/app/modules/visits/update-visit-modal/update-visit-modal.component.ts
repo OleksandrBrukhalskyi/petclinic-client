@@ -38,14 +38,14 @@ export class UpdateVisitModalComponent implements OnInit {
   }
   update() {
     this.visitService.update(this.visit, this.visit.id).subscribe(() => {
-      this.getVisits();
-      this.openSnackBarAfterVisitUpdate()
+      // this.getVisits();
+      // this.openSnackBarAfterVisitUpdate()
     })
   }
 
   getVisits() {
-    this.visitService.getVisits().subscribe((data: {}) => {
-      this.dataSource.data = data;
+    this.visitService.getVisits().subscribe(data  => {
+      //this.dataSource.data = data;
       this.visits = data;
 
     })
@@ -54,7 +54,7 @@ export class UpdateVisitModalComponent implements OnInit {
   getPets() {
     this.petService.getPets().subscribe((data: {}) => {
       this.pets = data;
-
+      this.dataSource.data = data;
 
     });
 

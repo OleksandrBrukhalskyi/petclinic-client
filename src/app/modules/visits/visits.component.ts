@@ -85,7 +85,7 @@ export class VisitsComponent implements OnInit {
 
   getVisits() {
     this.visitService.getVisits().subscribe((data: {}) => {
-      this.dataSource = data;
+      this.dataSource.data = data;
       this.visits = data;
 
     })
@@ -93,7 +93,7 @@ export class VisitsComponent implements OnInit {
 
   getPets() {
     this.petService.getPets().subscribe((data: {}) => {
-      this.dataSource = data;
+      //this.dataSource = data;
       this.pets = data;
 
     });

@@ -67,12 +67,13 @@ export class VeterinariansComponent implements OnInit {
   getSpecialties() {
     this.specialtyService.getSpecialties().subscribe((data: {}) => {
       this.specialties = data;
+      //this.dataSource.data = data;
     });
 
   }
   getVeterinarians() {
     this.veterinarianService.getVeterinarians().subscribe((data: {}) => {
-      this.dataSource = data;
+      this.dataSource.data = data;
       this.veterinarians = data;
     });
 
@@ -80,7 +81,7 @@ export class VeterinariansComponent implements OnInit {
 
   update() {
     this.veterinarianService.update(this.veterinarian, this.veterinarian.id).subscribe(() => {
-      this.getVeterinarians();
+      
     });
 
   }
@@ -116,7 +117,7 @@ export class VeterinariansComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       //console.log(data);
       this.load();
-      
+
     })
   }
 

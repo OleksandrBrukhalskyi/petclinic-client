@@ -4,6 +4,7 @@ import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/m
 import { Specialty } from 'src/app/model/specialty.model';
 import { SpecialtyService } from 'src/app/services/specialty.service';
 import { AddSpecialtyModalComponent } from './add-specialty-modal/add-specialty-modal.component';
+import { DeleteSpecialtyModalComponent } from './delete-specialty-modal/delete-specialty-modal.component';
 import { UpdateSpecialtyModalComponent } from './update-specialty-modal/update-specialty-modal.component';
 
 @Component({
@@ -13,9 +14,9 @@ import { UpdateSpecialtyModalComponent } from './update-specialty-modal/update-s
 })
 export class SpecialtiesComponent implements OnInit {
 
-  displayedColumns = ['id','name','actions'];
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  displayedColumns = ['id', 'name', 'actions'];
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   public dataSource: any;
   specialties: any;
@@ -23,9 +24,9 @@ export class SpecialtiesComponent implements OnInit {
   specialtyForm: FormGroup;
 
 
-  constructor(private specialtyService: SpecialtyService,private formBuilder: FormBuilder,public dialog: MatDialog) { 
+  constructor(private specialtyService: SpecialtyService, private formBuilder: FormBuilder, public dialog: MatDialog) {
     this.specialtyForm = this.formBuilder.group({
-      name: ['',[Validators.required]]
+      name: ['', [Validators.required]]
     });
 
   }
@@ -59,7 +60,7 @@ export class SpecialtiesComponent implements OnInit {
 
   }
   getSpecialties() {
-    this.specialtyService.getSpecialties().subscribe((data:{}) => {
+    this.specialtyService.getSpecialties().subscribe((data: {}) => {
       this.dataSource.data = data;
       this.specialties = data;
     })
@@ -76,15 +77,15 @@ export class SpecialtiesComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  openDialogOnCreate(){
-    const dialogRef = this.dialog.open(AddSpecialtyModalComponent,{
+  openDialogOnCreate() {
+    const dialogRef = this.dialog.open(AddSpecialtyModalComponent, {
       width: '800px',
       data: {}
 
-    
+
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.specialty= result;
+      this.specialty = result;
       console.log(result)
       this.getSpecialties();
 
@@ -94,8 +95,8 @@ export class SpecialtiesComponent implements OnInit {
   }
   openDialogOnUpdate(specialty: Specialty) {
     const dialogRef = this.dialog.open(UpdateSpecialtyModalComponent, {
-        width: '800px',
-        data: specialty
+      width: '800px',
+      data: specialty
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getSpecialties();
@@ -103,6 +104,18 @@ export class SpecialtiesComponent implements OnInit {
     })
 
   }
+  openDialogOnDelete(specialty: Specialty) {
+    const dialogRef = this.dialog.open(DeleteSpecialtyModalComponent, {
+      width: '800px',
+      data: specialty
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.getSpecialties();
+
+    })
+
+  }
+
 
 
 

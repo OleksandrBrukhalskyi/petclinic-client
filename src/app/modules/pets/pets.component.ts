@@ -123,7 +123,9 @@ export class PetsComponent implements OnInit {
         data: pet
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
+      //console.log(result)
+      this.load();
+      
 
     })
 

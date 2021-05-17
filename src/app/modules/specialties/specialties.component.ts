@@ -55,7 +55,7 @@ export class SpecialtiesComponent implements OnInit {
 
   update() {
     this.specialtyService.update(this.specialty, this.specialty.id).subscribe(data => {
-
+        
     });
 
   }
@@ -106,16 +106,13 @@ export class SpecialtiesComponent implements OnInit {
   }
   openDialogOnDelete(specialty: Specialty) {
     const dialogRef = this.dialog.open(DeleteSpecialtyModalComponent, {
-      width: '800px',
+      width:'500px',
       data: specialty
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       this.getSpecialties();
-
     })
-
   }
-
 
 
 

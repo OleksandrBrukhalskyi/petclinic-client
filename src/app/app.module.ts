@@ -26,12 +26,15 @@ import { UpdateSpecialtyModalComponent } from './modules/specialties/update-spec
 import { ModalOwnerDeleteComponent } from './modules/owners/modal-owner-delete/modal-owner-delete.component';
 import { DeletePetModalComponent } from './modules/pets/delete-pet-modal/delete-pet-modal.component';
 import { DeleteSpecialtyModalComponent } from './modules/specialties/delete-specialty-modal/delete-specialty-modal.component';
+
 import { HighchartsChartModule } from 'highcharts-angular';
 import { VisitsComponent } from './modules/visits/visits.component';
 import { AddVisitModalComponent } from './modules/visits/add-visit-modal/add-visit-modal.component';
 import { UpdateVisitModalComponent } from './modules/visits/update-visit-modal/update-visit-modal.component';
 import { DeleteVisitModalComponent } from './modules/visits/delete-visit-modal/delete-visit-modal.component';
 import { DeleteModalVetComponent } from './modules/veterinarians/delete-modal-vet/delete-modal-vet.component';
+
+
 
 
 

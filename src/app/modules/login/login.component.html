@@ -2,9 +2,10 @@
     <span>PETCLINIC</span>
 </mat-toolbar>
 <mat-card>
+    <h3>Вхід</h3>
     <form [formGroup]="loginForm" (ngSubmit)="login()">
         <mat-form-field appearance="fill" color="accent">
-            <mat-label>Username</mat-label> 
+            <mat-label>Username</mat-label>
             <input matInput type="text" formControlName="login">
             <mat-error *ngIf="f.login.hasError('required')">
                 Username is <strong>required</strong>
@@ -12,7 +13,7 @@
         </mat-form-field>
         <p>
         <mat-form-field appearance="fill" color="accent">
-            <mat-label>Password</mat-label> 
+            <mat-label>Password</mat-label>
             <input matInput type="{{ hidePassword ? 'password' : 'text' }}" formControlName="password">
             <mat-icon class="no-select" (click)="changeVisibility()" matSuffix>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
             <mat-error *ngIf="f.password.hasError('required')">
@@ -21,9 +22,9 @@
         </mat-form-field>
         </p>
         <button mat-raised-button [disabled]="loading">
-            Log In
+            Увійти
             <mat-spinner *ngIf="loading" matSuffix diameter="30" color="accent"></mat-spinner>
         </button>
     </form>
-    <p>Don't have an account? <a routerLink="/signup" [queryParams]="{ returnUrl: returnUrl }">Register now</a></p>
+    <p>Ще не маєте аккаунту? <a routerLink="/signup" [queryParams]="{ returnUrl: returnUrl }">Зареєструйтесь зараз</a></p>
 </mat-card>

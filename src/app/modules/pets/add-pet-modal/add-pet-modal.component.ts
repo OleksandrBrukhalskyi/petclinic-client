@@ -18,14 +18,14 @@ export class AddPetModalComponent implements OnInit {
   dataSource: any;
   pets: any;
   owners: any;
-  
+
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
 
-  constructor(public dialogRef: MatDialogRef<AddPetModalComponent>, 
+  constructor(public dialogRef: MatDialogRef<AddPetModalComponent>,
     @Inject(MAT_DIALOG_DATA) public pet: Pet, @Inject(MAT_DIALOG_DATA) public owner: Owner, public petService: PetService, public ownerService: OwnerService ,
-    private formBuilder: FormBuilder, private snackBar: MatSnackBar) { 
+    private formBuilder: FormBuilder, private snackBar: MatSnackBar) {
       this.petForm = this.formBuilder.group({
         name: ['', [Validators.required]],
         breed: ['',[Validators.required]],
@@ -37,8 +37,8 @@ export class AddPetModalComponent implements OnInit {
   ngOnInit() {
     this.getOwners();
     this.load();
-    
-    
+
+
   }
   load() {
   	this.petService.getPets().subscribe((data: {}) => {
@@ -54,20 +54,20 @@ export class AddPetModalComponent implements OnInit {
     return this.petForm.controls;
   }
    create() {
-     
+
    this.petService.add(this.petForm.value).subscribe(() => {
     //console.log(this.petForm.value)
-    
+
     //  console.log(this.pet);
      this.petForm.reset();
      this.petForm.setErrors(null);
      this.openSnackBarAfterPetAdd();
      this.load();
-     
+
 
 
    });
-   
+
   }
   getOwners() {
     this.ownerService.getOwners().subscribe((data: {}) => {
@@ -76,7 +76,7 @@ export class AddPetModalComponent implements OnInit {
 
   }
   openSnackBarAfterPetAdd(){
-    this.snackBar.open('The pet was successfully added!', 'Ok',{
+    this.snackBar.open('Тваринку успішно додано!', 'Ok',{
       duration: 3000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,

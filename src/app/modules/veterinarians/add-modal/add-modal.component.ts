@@ -23,13 +23,13 @@ export class AddModalComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<AddModalComponent>,
               @Inject(MAT_DIALOG_DATA) public vet: Veterinarian, @Inject(MAT_DIALOG_DATA) public specialty: Specialty,
               public vetService: VeterinarianService, public specialtyService: SpecialtyService, private formBuilder: FormBuilder ) {
-          
+
                 this.vetForm = this.formBuilder.group({
                   surname: ['', [Validators.required]],
                   firstname: ['', [Validators.required]],
                   patronymic: [''],
                   specialty: ['',[Validators.required]]
-      
+
               });
       }
 
@@ -50,7 +50,7 @@ export class AddModalComponent implements OnInit {
   public get f() {
     return this.vetForm.controls;
   }
-  
+
   getSpecialties() {
     return this.specialtyService.getSpecialties().subscribe(data =>{
       this.specialties = data;
@@ -72,6 +72,14 @@ export class AddModalComponent implements OnInit {
   }
   onNoClick(): void {
     this.dialogRef.close();
+  }
+  openSnackBarAfterVetAdd(){
+    this.snackBar.open('Ветеринара успішно додано!', 'Ok',{
+      duration: 5000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+
   }
 
 }

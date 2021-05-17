@@ -38,14 +38,14 @@ export class UpdateVisitModalComponent implements OnInit {
   }
   update() {
     this.visitService.update(this.visit, this.visit.id).subscribe(() => {
-      // this.getVisits();
-      // this.openSnackBarAfterVisitUpdate()
+
+       this.openSnackBarAfterVisitUpdate()
     })
   }
 
   getVisits() {
     this.visitService.getVisits().subscribe(data  => {
-      //this.dataSource.data = data;
+
       this.visits = data;
 
     })

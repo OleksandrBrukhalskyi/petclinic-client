@@ -68,25 +68,16 @@ export class UpdatePetModalComponent implements OnInit {
   compareObjects(o1: any, o2: any): boolean {
     return o1.name === o2.name && o1._id === o2._id;
   }
-  // selectOwner(event: Event) {
-  //   this.selectedOwner = (event.target as HTMLSelectElement).value;
-  //   console.log(this.selectedOwner)
-  // }
+
   openSnackBarAfterPetUpdate() {
-    this.snackBar.open('The pet was successfully updated!', 'Ok', {
+    this.snackBar.open('Тваринку успішно оновлено!', 'Ok', {
       duration: 5000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
     });
 
   }
-  // changeOwner(element: any) {
-  //   let el = element;
-  //   console.log(el.value)
-  // }
-  // selectOwner(event: any) {
-  //   this.selectedOwner = event.target.value;
-  // }
+
 
 
 }

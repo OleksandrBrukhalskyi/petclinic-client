@@ -65,7 +65,7 @@ export class UpdateModalComponent implements OnInit {
     })
   }
   openSnackBarAfterVetUpdate() {
-      this.snackBar.open('The veterinarian was successfully updated!', 'Ok', {
+      this.snackBar.open('Ветеринара успішно оновлено!', 'Ok', {
         duration: 5000,
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,

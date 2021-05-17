@@ -69,7 +69,7 @@ export class AddVisitModalComponent implements OnInit {
 
   }
   openSnackBarAfterVisitAdd() {
-    this.snackBar.open('The visit was successfully added!', 'Ok', {
+    this.snackBar.open('Візит успішно Додано!', 'Ok', {
       duration: 3000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,

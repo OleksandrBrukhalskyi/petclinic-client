@@ -12,7 +12,7 @@ export class DeletePetModalComponent implements OnInit {
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-  
+
   constructor(public dialogRef: MatDialogRef<DeletePetModalComponent>, @Inject(MAT_DIALOG_DATA) public pet: Pet, public petService: PetService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class DeletePetModalComponent implements OnInit {
     })
   }
   openSnackBarAfterPetDelete(){
-    this.snackBar.open('The pet was successfully deleted!', 'Ok',{
+    this.snackBar.open('Тваринку успішно видалено!', 'Ok',{
       duration: 5000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,

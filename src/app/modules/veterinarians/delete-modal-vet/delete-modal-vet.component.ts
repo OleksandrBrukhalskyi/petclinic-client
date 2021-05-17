@@ -25,7 +25,7 @@ export class DeleteModalVetComponent implements OnInit {
     })
   }
   openSnackBarAfterVetDelete(){
-    this.snackBar.open('The veterinarian was successfully deleted!', 'Ok',{
+    this.snackBar.open('Ветеринара успішно видалено!', 'Ok',{
       duration: 5000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,

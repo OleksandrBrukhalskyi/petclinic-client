@@ -16,9 +16,9 @@ export class UpdateSpecialtyModalComponent implements OnInit {
   specialtyForm: FormGroup;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-  
+
   constructor(private specialtyService: SpecialtyService,private formBuilder: FormBuilder,public dialogRef: MatDialogRef<UpdateSpecialtyModalComponent>,
-              @Inject(MAT_DIALOG_DATA) public specialty: Specialty, private snackBar: MatSnackBar) { 
+              @Inject(MAT_DIALOG_DATA) public specialty: Specialty, private snackBar: MatSnackBar) {
     this.specialtyForm = this.formBuilder.group({
       name: ['',[Validators.required]]
     });
@@ -49,7 +49,7 @@ export class UpdateSpecialtyModalComponent implements OnInit {
     })
   }
   openSnackBarAfterSpecialtyUpdate(){
-    this.snackBar.open('The specialty was successfully updated!', 'Ok',{
+    this.snackBar.open('Спеціальність успішно оновлено!', 'Ok',{
       duration: 3000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,

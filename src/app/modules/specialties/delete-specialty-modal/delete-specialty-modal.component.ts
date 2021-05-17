@@ -24,11 +24,11 @@ export class DeleteSpecialtyModalComponent implements OnInit {
     })
   }
   openSnackBarAfterSpecialtyDelete(){
-    this.snackBar.open('The specialty was successfully deleted!', 'Ok',{
+    this.snackBar.open('Спеціальність успішно видалено!', 'Ok',{
       duration: 5000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
     });
-  
+
   }
 }

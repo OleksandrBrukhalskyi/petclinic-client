@@ -20,7 +20,7 @@ export class ModalUpdateComponent implements OnInit {
 
   owner: Owner;
   public id: number;
-  
+
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
@@ -37,13 +37,13 @@ export class ModalUpdateComponent implements OnInit {
       phoneNumber: ['',[Validators.required, Validators.minLength(12)]]
 
     });
-   
-   
+
+
 
 }
 
   ngOnInit() {
-    
+
 
   }
   loadOwners() {
@@ -63,7 +63,7 @@ export class ModalUpdateComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  
+
   returnById(id: number){
     this.ownerService.getById(id).subscribe(data =>{
       console.log(data);
@@ -73,15 +73,15 @@ export class ModalUpdateComponent implements OnInit {
 
   }
   update() {
-   
+
     this.ownerService.update(this.data,this.data.id).subscribe(res => {
       this.openSnackBarAfterOwnerUpdate();
-      
-     
+
+
     })
-  } 
+  }
   openSnackBarAfterOwnerUpdate(){
-    this._snackBar.open('The owner was successfully updated!', 'Ok',{
+    this._snackBar.open('Власника успішно оновлено!', 'Ok',{
       duration: 5000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,

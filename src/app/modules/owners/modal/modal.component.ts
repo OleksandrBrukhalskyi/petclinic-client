@@ -16,7 +16,7 @@ export class ModalComponent  implements OnInit {
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
 
- 
+
   constructor(public dialogRef: MatDialogRef<ModalComponent>,
               @Inject(MAT_DIALOG_DATA) public owner: Owner, public ownerService: OwnerService,private formBuilder: FormBuilder,private _snackBar: MatSnackBar
              ) {
@@ -26,9 +26,9 @@ export class ModalComponent  implements OnInit {
                 patronymic: ['', [Validators.required, Validators.minLength(5) ,Validators.maxLength(32)]],
                 homeAddress: ['',[Validators.required, Validators.minLength(5), Validators.maxLength(32)]],
                 phoneNumber: ['',[Validators.required, Validators.minLength(12)]]
-        
+
               });
-    
+
   }
 
   ngOnInit() {
@@ -56,13 +56,13 @@ export class ModalComponent  implements OnInit {
       this.ownerForm.reset();
       this.ownerForm.setErrors(null);
       this.openSnackBarAfterOwnerAdd();
-      
+
 
 
     });
   }
   openSnackBarAfterOwnerAdd(){
-    this._snackBar.open('The owner was successfully added!', 'Ok',{
+    this._snackBar.open('Власника успішно додано!', 'Ok',{
       duration: 3000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,

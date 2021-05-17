@@ -14,7 +14,7 @@ export class ModalOwnerDeleteComponent implements OnInit {
   owners: any;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
-  
+
   constructor(public dialogRef: MatDialogRef<ModalOwnerDeleteComponent>, @Inject(MAT_DIALOG_DATA) public owner: Owner, public ownerService: OwnerService,private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -24,14 +24,14 @@ export class ModalOwnerDeleteComponent implements OnInit {
     this.ownerService.delete(id).subscribe(() => {
       this.openSnackBarAfterOwnerDelete();
     });
-  } 
+  }
   openSnackBarAfterOwnerDelete(){
-    this._snackBar.open('The owner was successfully deleted!', 'Ok',{
+    this._snackBar.open('Власника успішно видалено!', 'Ok',{
       duration: 5000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
     });
 
   }
-  
+
 }

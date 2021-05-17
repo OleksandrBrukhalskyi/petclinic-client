@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { Specialty } from 'src/app/model/specialty.model';
 import { Veterinarian } from 'src/app/model/veterinarian.model';
 import { SpecialtyService } from 'src/app/services/specialty.service';
@@ -22,7 +22,8 @@ export class AddModalComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<AddModalComponent>,
               @Inject(MAT_DIALOG_DATA) public vet: Veterinarian, @Inject(MAT_DIALOG_DATA) public specialty: Specialty,
-              public vetService: VeterinarianService, public specialtyService: SpecialtyService, private formBuilder: FormBuilder ) {
+              public vetService: VeterinarianService, public specialtyService: SpecialtyService, private formBuilder: FormBuilder,
+            private snackBar: MatSnackBar ) {
 
                 this.vetForm = this.formBuilder.group({
                   surname: ['', [Validators.required]],
